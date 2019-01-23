@@ -1,7 +1,4 @@
-<?php
-session_start();
-include("../connectDb/open.php");
-mysqli_set_charset($con,'utf8');
+
 <?php
 session_start();
 include("../connectDb/open.php");
