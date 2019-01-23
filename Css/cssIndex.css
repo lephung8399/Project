@@ -1,0 +1,265 @@
+#main{
+				width: 1333px;
+				height: 3000px;
+				background-image: url(img/background.jpg);
+			}
+			#header{
+				width: 75%;
+				height: 110px;
+				margin: auto;
+			}
+			
+			#mainMenu{
+				width: 100%;
+				height: 50px;
+				margin: inherit;
+				background-color: #333333
+			}
+			#containerMenu{
+				width: 1133.05px;
+				height: 100%;
+				margin: auto;
+				background-color: 
+			}
+			#slide{
+				width: 75%;
+				height: 450px;
+				margin: auto;
+			}
+			#space{
+				width: 75%;
+				height: 50px;
+				margin: auto;
+			}
+			#leftslide{
+				width: 50%;
+				height: 100%;
+				float: left;
+				/*background-color: black;*/
+				position: relative;
+			}
+			#rightslide{
+				width: 50%;
+				height: 100%;
+				float: left;
+
+			}
+			#topright{
+				width: 100%;
+				height: 60%;
+				position: relative;
+
+			}
+			#botright{
+				width: 100%;
+				height: 40%
+			}
+			
+			#abc{position: absolute;
+				left: 10px;
+				display: inline;
+				/*padding-top: 160px;*/
+				bottom: 2px;
+				margin: auto;
+				
+			}
+			#divimg1{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+			}
+			#divimg3{
+				width: 50%
+				;height: 100%;
+				float: left;
+				background-color: white;
+				position: relative;
+			}
+			#divimg4{
+				width: 50%
+				;height: 100%;
+				float: left;
+				background-color: transparent;
+				position: relative;
+			}
+			.aslide{font-weight: 500; z-index: 99;
+				font-size: 25px; text-decoration: none; color: white; font-family: sans-serif;}
+			
+			#menu {list-style: none;}
+				#menu ul {list-style: none; display: none; padding-left: 0;}
+				#menu li {list-style: none; display: inline-block; position: relative; font-family: sans-serif; font-size: 22px; font-weight: 100; text-transform: uppercase;}
+				#menu li a {text-decoration: none;color: white; width: 170px; height: 50px; display: block; padding: 3px; text-align: center; padding-top: 10px}
+				
+				#menu ul {display: none}
+				#menu li:hover ul {position: absolute; display: block;z-index: 1}
+				#menu li:hover a{color:red;font-weight:bold}
+				#menu  li ul li:hover a{color: black}
+				#menu ul li:hover ul{display:block}
+				#menu ul li {color: red}
+
+			#search:hover {width: 250px !important; z-index: 1  !important; position: absolute; transition: 0.5s all}
+			#content{
+				width: 75%;
+				margin: auto;
+				height: 1300px;
+				background-color: white;
+				/*border-top: 5px solid red*/}
+			#cuonTin{width: 65%;
+					height: 100%;
+					float: left;
+					background-color: #0099FF}
+			#tinNoiBat{
+				width: 35%;
+				height: 600px;
+				float: left;
+				background-color: grey;
+				/*position: relative;*/
+				border-left: 1px white
+			}
+			#tittleTinNB{
+				width: 90%;
+				height: 50px;
+				margin: auto;
+				background-color: #5FD9E2;
+				/*position: absolute;*/
+			}
+			#tinNB{
+				width: 90%;
+				height: 550px;
+				margin: auto;
+
+			}
+			#tittleTin{
+				width: 95%;
+				height: 50px;
+				margin: auto;
+				background-color: #5FD9E2;
+			}
+			
+			#tittleMain{
+				width: 100%;
+				height: 34px;
+				background-color: white;
+			}
+			#chamcham{
+				width: 35%;
+				height: 7px;
+				float: left;
+				background-image: url(../IMG1/title-line.png);
+				
+				background-repeat: repeat-x;
+			}
+			#tieuDe{
+				width: 30%;
+				height: 30px;
+				/*background-color: blue;*/
+				float: left;
+				margin: auto;	
+				top: -30px;
+    			left: 40px;
+		
+			}
+			#lienHe{
+				width: 35%;
+				height: 100%;
+				float: left;
+				background: white;
+			}
+
+			#logo{
+				width: 30%;
+				height: 100%;
+				float: left;
+				background-image: url(../IMG1/IconLogo2.png);
+				background-repeat: no-repeat;
+			}
+			#SearchLogin{
+				width: 35%;
+				height: 100%;
+				float: left;
+				background: ;
+			}
+			#khongdelamgi{
+				width: 10%;
+				height: 100%;
+				float: left;
+			}
+			#timKiem{
+				width: 70%;
+				height: 100%;
+				float: left;
+				background-color: 
+			}
+			#taiKhoan{
+				width: 20%;
+				height: 100%;
+				float: left;
+				background-color: 
+			}
+			input[type="search"] {
+		      width: 140px;
+		      box-sizing: border-box;
+		      border: 1px solid black;
+		      border-radius: 6px;
+		      outline:none;
+		      padding: 12px 14px;
+		      transition:0.6s ease-in-out;
+		    	}
+		    input[type="search"]:focus{
+		    width:240px; 
+		    background-color:lightpink;
+				}
+			#tinTheLoai{
+				width: 100%;
+				height: 500px;
+				background-color: ;
+				margin: auto;
+				position: relative;
+			}
+			#anh1{
+				width: 32%;
+				height: 366px;
+				background-color: transparent;
+				float: left;
+				position: relative;
+				margin-left: 7px
+			}
+			#tinTheLoai2{
+				width: 100%;
+				height: 500px;
+				background-color: ;
+				margin: auto;
+				position: relative;
+			}
+			#tinTheLoai3{
+				width: 100%;
+				height: 500px;
+				background-color: ;
+				margin: auto;
+				position: relative;
+			}
+			#thethao{
+				width: 100%;
+				height: 500px;
+				margin: auto;
+				background-color: 
+			}
+			#tinTheLoai4{
+				width: 100%;
+				height: 500px;
+				background-color: ;
+				margin: auto;
+				position: relative;
+			}
+			#phongcach{
+				width: 100%;
+				height: 500px;
+				margin: auto;
+				background-color: 
+			}
+			#congNghe{
+				width: 100%;
+				height: 500px;
+				margin: auto;
+				background-color: 
+			}
