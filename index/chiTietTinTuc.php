@@ -2,10 +2,14 @@
 session_start();
 include("../connectDb/open.php");
 mysqli_set_charset($con,'utf8');
-
-
-
-
+<?php
+session_start();
+include("../connectDb/open.php");
+mysqli_set_charset($con,'utf8');
+// đây là phần số lượt xem 
+$maTin = $_GET["maTin"];
+$sql = "UPDATE  tbltintuc  SET soLuotXem = soLuotXem+1 WHERE maTin = $maTin";
+mysqli_query($con,$sql);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -141,6 +145,7 @@ mysqli_set_charset($con,'utf8');
 					<div id="spaceTin">
 						<div id="InforTin" style="text-align: left;margin: auto; margin-top: 7px;margin-left: 5px;">
 							<?php echo $tinTuc['ngay']. '-' .$tinTuc['month']. '-' .$tinTuc['year']?>
+							<span style="margin-left: 100px">Số lượt xem: <?php echo($tinTuc["soLuotXem"]);?>
 						</div>
 					</div>
 					<div id="TinTin">
