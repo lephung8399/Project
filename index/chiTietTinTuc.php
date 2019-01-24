@@ -2,10 +2,6 @@
 session_start();
 include("../connectDb/open.php");
 mysqli_set_charset($con,'utf8');
-<?php
-session_start();
-include("../connectDb/open.php");
-mysqli_set_charset($con,'utf8');
 // đây là phần số lượt xem 
 $maTin = $_GET["maTin"];
 $sql = "UPDATE  tbltintuc  SET soLuotXem = soLuotXem+1 WHERE maTin = $maTin";
