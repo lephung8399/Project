@@ -171,7 +171,7 @@ session_start();
 						if(isset($_GET["maTheLoai"]))
 						{
 							$TheLoai=$_GET["maTheLoai"];
-							$query="select * from tbltintuc where maTheLoai=$TheLoai and tinhTrang=1 order by maTin DESC limit 4";
+							$query="select * from tbltintuc where tinhTrang=1 order by soLuotXem DESC limit 4";
 							$excute=mysqli_query($con,$query);
 
 						}

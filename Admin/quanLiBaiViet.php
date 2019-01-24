@@ -85,7 +85,6 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
                     $maTheLoai=$_POST["tenTheLoai"];
                     $query=$query." and maTheLoai=$maTheLoai";
                 }
-                echo $query;
             }
             
 
