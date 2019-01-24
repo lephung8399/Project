@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -11,11 +11,11 @@
 	
 		$id=$_GET["id"];
 	?>
-		<!-- <form method="POST" action="xuli.php" > -->
+		<form method="POST" action="xuli.php" >
 		Địa Chỉ: <input type="text" name="tntDiaChi" id="textDiaChi">
 		<span id="errDiaChi"></span>
 		<button type="submit" name="ma" value="<?php echo $id;?>">Thay Đổi</button>
-	<!-- </form> -->
+	</form>
 		<?php
 	}
 	?>
@@ -31,4 +31,4 @@
 	}
  ?>
 </body>
-</html>
+</html> -->

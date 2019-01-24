@@ -47,7 +47,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 							<tr>
 								<td>Mật Khẩu:</td>
 								<td>
-									<input type="password" name="txtPass" >
+									<input type="password" name="txtPass" value="<?php echo('********');?>" >
 								</td>
 							</tr>
 								
