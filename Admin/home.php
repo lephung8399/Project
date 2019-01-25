@@ -15,11 +15,11 @@
 		#mainMenu{
 			width: 1200px;
 			height: 60px;
-			background-color: #14AC78;
+			background: dodgerblue;
 			margin: inherit;
 		}
 		#menu{
-			width: 90%;
+			width: 85%;
 			height: 60px;
 			float: left
 		}
@@ -30,9 +30,9 @@
 			background-color: #EDF6D3
 		}
 		#login{float: left;
-			width: 10%;
+			width: 15%;
 			height: 60px;
-			background-color: #B7ADAD
+			background: dodgerblue
 		}
 		/*HƯng rất đẹp zai*/
 
@@ -65,7 +65,7 @@
 			</div>
 			<div id="login">
 				
-				<a href="dangXuat.php"><h4 style="display: inline-block; margin-left: 30px ">Đăng Xuất</h4></a>
+				<a href="dangXuat.php"><h4 style="display: inline-block; margin-left: 30px; letter-spacing: 1px; font-style: italic ">ĐĂNG XUẤT</h4></a>
 			</div>
 		</div>
 		<br>
