@@ -10,6 +10,24 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 		#qltt{width: 50%;
 			
 			margin: auto}
+		/* Blue */
+		.info {
+		  border-color: #2196F3;
+		  color: dodgerblue
+		}
+
+		.info:hover {
+		  background: #2196F3;
+		  color: white;
+		}
+		.btn {
+		  border: 2px solid black;
+		  background-color: white;
+		  color: black;
+		  padding: 14px 28px;
+		  font-size: 16px;
+		  cursor: pointer;
+		}
 	</style>
 </head>
 <body>
@@ -57,7 +75,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 							?>
 						</table>
 					
-						<input type="submit" value="Cập Nhật" onclick="return confirm('Bạn có chắc muốn cập nhật?')">
+						<input type="submit" value="Cập Nhật" onclick="return confirm('Bạn có chắc muốn cập nhật?')" class="btn info">
 						</form>
 						<?php 
 						include("../connectDb/close.php");

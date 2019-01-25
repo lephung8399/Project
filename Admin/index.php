@@ -1,92 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style type="text/css">
-		#main{width: 400px;
-			height: 200px;
-			margin: auto;
-			background-color: grey;
-			margin-top: 200px;
-			position: relative;}
-		/*#text1{
-			width: 100%;
-			height: 150px;
-			margin: auto;
-			position: absolute;
-			background-color: blue;
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
 
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
 
-		}*/
-		#dangNhap{
-			width: 100%;
-			height: 50px;
-			margin: auto;
-			position: absolute;
-			background-color:  ;
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
 
-		}
-	</style>
-	<script type="text/javascript">
-		function login()
-		{
-			if(document.getElementById("txtUser").value.length != 0 && document.getElementById("txtPass").value.length != 0)
-				document.getElementById("loginButton").type= 'submit';
-			else if(document.getElementById("txtUser").value.length == 0 && document.getElementById("txtPass").value.length == 0) document.getElementById("errLogin").innerHTML = "Hãy điền tên đăng nhập và mật khấu"
-			else if(document.getElementById("txtPass").value.length == 0) document.getElementById("errLogin").innerHTML = "Hãy điền mật khấu"
-			else document.getElementById("errLogin").innerHTML = "Hãy điền tên đăng nhập";
-		}
-	</script>
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+.err{
+  color: red
+}
+</style>
+<script type="text/javascript">
+    function login()
+    {
+      if(document.getElementById("txtUser").value.length != 0 && document.getElementById("txtPass").value.length != 0)
+        document.getElementById("loginButton").type= 'submit';
+      else if(document.getElementById("txtUser").value.length == 0 && document.getElementById("txtPass").value.length == 0) document.getElementById("errLogin").innerHTML = "Hãy điền tên đăng nhập và mật khấu"
+      else if(document.getElementById("txtPass").value.length == 0) document.getElementById("errLogin").innerHTML = "Hãy điền mật khấu"
+      else document.getElementById("errLogin").innerHTML = "Hãy điền tên đăng nhập";
+    }
+  </script>
 </head>
-
 <body>
-	<?php 
-		session_start();
-		if(isset($_SESSION['maQuyen'])) header("location: home.php");
-	?>
-	<div id="main">
-		<form action="loginProcess.php" method="POST">
-			<div id="text1" align="center">
-				<table>
-					<tr>
-						<td>
-							<h4>Tên Tài Khoản:</h4>
-						</td>
-						<td>
-							<input type="text" id="txtUser" placeholder="Nhập tên tài khoản..." name="txtUser">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Mật Khẩu:</h4>
-						</td>
-						<td>
-							<input type="password" id="txtPass" placeholder="Nhập mật khẩu..." name="txtPass">
-						</td>
-					</tr>
-				</table>
-			</div>
-			<div align="center" >
-				<span id="errLogin"></span>
-			</div>
-			<?php 
-							if(isset($_GET['err']))
-								if($_GET['err'] == 1) {
-									?>
-										<script type="text/javascript">
-											document.getElementById("errLogin").innerHTML = "Sai tên đăng nhập hoặc mật khấu";
-										</script>
-									<?php
-								}
-							?>
-			<div id="dangNhap">
-				<div align="center" style="margin-top: 10px">
-					<input type="button" id="loginButton" onclick="login()" value="Đăng Nhập">
-				</div>
-			</div>
-		</form>
-	</div>
-		
+  <?php 
+    session_start();
+    if(isset($_SESSION['maQuyen'])) header("location: home.php");
+  ?>
+<form action="loginProcess.php" method="POST" style="max-width:500px;margin:auto">
+  <h2>Đăng Nhập</h2>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Username" name="txtUser" id="txtUser">
+  </div>
+  
+  <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" placeholder="Password" name="txtPass" id="txtPass">
+  </div>
+  <div align="center" >
+        <span id="errLogin"></span>
+      </div>
+      <?php 
+              if(isset($_GET['err']))
+                if($_GET['err'] == 1) {
+                  ?>
+                    <script type="text/javascript">
+                      document.getElementById("errLogin").innerHTML = "Sai tên đăng nhập hoặc mật khấu";
+                    </script>
+                  <?php
+                }
+              ?>
+
+  <button type="submit" class="btn" onclick="login()" id="loginButton">Đăng nhập</button>
+</form>
+
 </body>
 </html>

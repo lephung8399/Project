@@ -6,6 +6,44 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 <head>
 	<meta charset="UTF-8">
 	<title>Quản Lí Bài Viết</title>
+	<style type="text/css">
+		/* Blue */
+		.info {
+		  border-color: #2196F3;
+		  color: dodgerblue
+		}
+
+		.info:hover {
+		  background: #2196F3;
+		  color: white;
+		}
+		.btn {
+		  border: 2px solid black;
+		  background-color: white;
+		  color: black;
+		  padding: 14px 28px;
+		  font-size: 16px;
+		  cursor: pointer;
+		}
+		#myBtn {
+			  display: none;
+			  position: fixed;
+			  bottom: 20px;
+			  right: 30px;
+			  z-index: 99;
+			  font-size: 18px;
+			  border: none;
+			  outline: none;
+			  background-color: dodgerblue;
+			  color: white;
+			  cursor: pointer;
+			  padding: 15px;
+			  border-radius: 4px;
+			}
+
+		#myBtn:hover {
+		  background-color: #555;
+	</style>
 </head>
 <body>
 	<a href="#" style="text-decoration: none;  font-size: 27px; font-family: monospace;  letter-spacing: 10px"><strong>Quản lí Bài viết</strong></a>
@@ -85,7 +123,6 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
                     $maTheLoai=$_POST["tenTheLoai"];
                     $query=$query." and maTheLoai=$maTheLoai";
                 }
-                echo $query;
             }
             
 
@@ -177,9 +214,29 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 				?>
 			</table>
 			<br>
-			<button><a href="themBaiViet.php" style="font-size: 20px; text-decoration: none; font-family: sans-serif; width: 80%; margin: auto;">Thêm Bài Viết</a></button>
+			<button class="btn info"><a href="themBaiViet.php" style="font-size: 20px; text-decoration: none; font-family: sans-serif; width: 80%; margin: auto;">Thêm Bài Viết</a></button>
 			<?php
 			include("../connectDb/close.php");
 			?>
+			<!-- Go to the Top BUTTON -->
+		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+			<script>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function() {scrollFunction()};
+
+			function scrollFunction() {
+			  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			    document.getElementById("myBtn").style.display = "block";
+			  } else {
+			    document.getElementById("myBtn").style.display = "none";
+			  }
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+			  document.body.scrollTop = 0;
+			  document.documentElement.scrollTop = 0;
+			}
+			</script>
 </body>
 </html>

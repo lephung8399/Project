@@ -32,6 +32,9 @@ session_start();
 			height: 60px;
 			background-color: #B7ADAD
 		}
+		.err{
+			color: red
+		}
 
 	</style>
 		<meta charset="UTF-8">
@@ -47,13 +50,25 @@ session_start();
 			var tomtat=document.getElementById("txtTomTat").value;
 			var noidung=document.getElementById("txtNoiDung").value;
 			var date=document.getElementById("date").value;
+			// var tacgia=document.getElementById("txtTacGia").value;
+
 			var errTieuDe=document.getElementById("errTieuDe");
 			var errMoTa=document.getElementById("errMoTa");
 			var errTomTat=document.getElementById("errTomTat");
 			var errNoiDung=document.getElementById("errNoiDung");
 			var errDate=document.getElementById("errDate");
+			// var errTacGia=document.getElementById("errTacGia");
 			
 			var dem=0;
+			// if(tacgia.length==0)
+			// {
+			// 	errTacGia.innerHTML="Không được để trống!";
+			// }else
+			// {
+			// 	errTacGia.innerHTML="";
+			// 			dem++;
+			// }
+
 			if(tieude.length==0)
 			{
 				errTieuDe.innerHTML="Không được để trống!";
@@ -62,6 +77,7 @@ session_start();
 				errTieuDe.innerHTML="";
 						dem++;
 			}
+
 			if(mota.length==0)
 			{
 				errMoTa.innerHTML="Không được để trống!";
@@ -70,6 +86,7 @@ session_start();
 				errMoTa.innerHTML="";
 						dem++;
 			}
+
 			if(tomtat.length==0)
 			{
 				errTomTat.innerHTML="Không được để trống!";
@@ -94,6 +111,7 @@ session_start();
 				errDate.innerHTML="";
 						dem++;
 			}
+
 			if(dem==4)
 			{
 				document.getElementById("frm").submit();
@@ -233,6 +251,13 @@ session_start();
 						</td>
 						<td><span id="errNoiDung" class="err"></span></td>
 					</tr>
+					<!-- <tr>
+						<td>Tác Giả:</td>
+						<td>
+							<input type="text" name="txtTacGia" id="txtTacGia">
+						</td>
+						<td><span id="errTacGia" class="err"></span></td>
+					</tr> -->
 					<tr>
 						<td>Ngày Đăng</td>
 						<td>
