@@ -64,7 +64,7 @@ session_start();
 					<div id="timKiem" style="margin: auto;  display: flex; align-items: center;">
 						<form style="padding-top: 40px margin-right: 5px; display: inline-block;"  action="searchprocess.php" method="get">
 							<input type="search" id="txtsearch" name="Search" placeholder=" Tìm Kiếm... " >
-							<input type="submit" id="submitbtn" value="Tìm kiếm" onclick="return validate()"><i class="fas fa-search"></i>
+							<!-- <input type="submit" id="submitbtn" value="Tìm kiếm" onclick="return validate()"><i class="fas fa-search"></i> -->
 							<!-- <img  src="https://img.icons8.com/material/30/000000/search.png" > -->
 						</form>
 					</div>
