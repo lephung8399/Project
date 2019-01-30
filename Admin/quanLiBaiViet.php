@@ -107,12 +107,12 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 			</form>
 			<?php
 			include("../connectDb/open.php");
-			$query="select * from tbltintuc order by maTin desc";
+			$query="SELECT tbladmin.tenAdmin, maTin, maTheLoai, tieuDe, moTa,noiDung,URLanh, ngay,tinhTrang,soLuotXem FROM tbltintuc INNER JOIN tbladmin ON tbltintuc.maTaiKhoan=tbladmin.maTaiKhoan order by maTin desc";
 			if(isset($_POST["search"])&&$_POST["search"]==0)
         	{
                 $tieuDe=$_POST["tieuDe"];
                 $ngay=$_POST["ngay"];
-                $query="select * from tbltintuc where tieuDe like '%$tieuDe%' and ngay >'$ngay'";
+                $query="SELECT tbladmin.tenAdmin, maTin, maTheLoai, tieuDe, moTa,noiDung,URLanh, ngay,tinhTrang,soLuotXem FROM tbltintuc INNER JOIN tbladmin ON tbltintuc.maTaiKhoan=tbladmin.maTaiKhoan where tieuDe like '%$tieuDe%' and ngay >'$ngay'";
                 if($_POST["tinhTrang"]!=999)
                 {
                     $tinhTrang=$_POST["tinhTrang"];
@@ -159,7 +159,8 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 					<th style="width: 5%">Mã tin</th>
 					<th style="width: 5%">Tên Thể Loại</th>
 					<th style="width: 15%">Ảnh Tin</th>
-					<th style="width: 30%">Tiêu Đề</th>
+					<th style="width: 20%">Tiêu Đề</th>
+					<th style="width: 10%">Người đăng</th>
 					<th style="width: 10%">Ngày đăng</th>
 					<th style="width: 10%">Tình Trạng</th>
 					<th style="width: 25%">Chức năng</th>
@@ -179,6 +180,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 						</td>
 						<td><img src="<?php echo ($tintuc["URLanh"]); ?>" style="width: 100%; height: auto"></td>
 						<td><?php echo ($tintuc["tieuDe"]); ?></td>
+						<td><?php echo ($tintuc["tenAdmin"]); ?></td>
 						<td><?php echo ($tintuc["ngay"]); ?></td>
 						<td>
 							<?php if($tintuc["tinhTrang"]==0){echo "Chưa Duyệt";}

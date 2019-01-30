@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -245,7 +248,7 @@
 		<center>
 	        <table>
 	            <tr>
-	                <th colspan="3" style="font-size: 24px; color: 	white;">Thông Tin Ðang Nh?p</th>
+	                <th colspan="3" style="font-size: 24px; color: 	white;">Thông Tin Ðang Nhập</th>
 	            </tr>
 	            <tr>
 	                <td >Tên Đăng Nhập:</td>
@@ -329,7 +332,7 @@
 	                        <option value="">31</option>
 	                    </select>/
 	                    <select id="ddlThang" name="txtThang">
-	                        <option value="-1">--tháng--</option>
+	                        <option value="-1">--Tháng--</option>
 	                        <option value="">1</option>
 	                        <option value="">2</option>
 	                        <option value="">3</option>
@@ -344,7 +347,7 @@
 	                        <option value="">12</option>
 	                    </select>/
 	                    <select id="ddlNam" name="txtNam">
-	                        <option value="-1">--nam--</option>
+	                        <option value="-1">--Năm--</option>
 	                        <option value="">1988</option>
 	                        <option value="">1989</option>
 	                        <option value="">1990</option>

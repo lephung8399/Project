@@ -10,6 +10,7 @@
  	$DiaChi =  $_POST['txtDiaChi'] ;
  	$DienThoai = $_POST['txtDienThoai'] ;
  	$conn = new mysqli("localhost", "root", "", "project");
+ 	mysqli_set_charset($conn,'utf8');
  	/*if($gioiTinh) echo "Nam";
  	else echo "Nu";*/
 
@@ -18,7 +19,7 @@
  	if(mysqli_query($conn, $sql)){
 
  		mysqli_close($conn);
- 		header("../trang ca nhan/index.php");
+ 		header("Location:../../index.php");
 
  	}
  	else

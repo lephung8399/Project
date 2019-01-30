@@ -259,12 +259,44 @@ mysqli_query($con,$sql);
 					</div>
 				</div>
 				<div id="tinNoiBat">
-					<div id="chamcham"></div>
 					<div id="tittleTinNB">
 						<h3 style="width: 100%; margin: auto; text-align: left; padding-top: 10px">Được Quan Tâm Nhất</h3>
 					</div>
 					<div id="tinNB">
-						
+						<?php
+						include("../connectDb/open.php");
+						if(isset($_GET["maTin"]))
+						{
+							$tinTuc=$_GET["maTin"];
+							$query="select * from tbltintuc where tinhTrang=1 order by soLuotXem DESC limit 4";
+							$excute=mysqli_query($con,$query);
+
+						}
+						?>
+					    <table width="100%" style="margin:auto">
+					    	<?php
+							while($tinTuc=mysqli_fetch_array($excute))
+							{
+								//moi tin la 1 dong
+								?>
+					            <tr>
+					            	<td style="border-bottom: 0.1px solid grey">
+					                	<table>
+					                    	<tr>
+					                        	<td rowspan="2"><img src="<?php echo($tinTuc["URLanh"])?>" height="100" width="150"/></td>
+					                            <td height="50px" style="vertical-align:top"><a href="chiTietTinTuc.php?maTin=<?php echo($tinTuc["maTin"]);?>" style="font-weight:bold;font-size:18px;text-decoration:none"><?php echo($tinTuc["tieuDe"]);?></a></td>
+					                        </tr>
+					                        
+					                    </table>
+					                </td>
+					            </tr>
+					            <?php	
+							}
+						?>
+					    </table>
+					    <?php
+						include("../ConnectDB/close.php");
+						?>
 					</div>
 				</div>
 				
