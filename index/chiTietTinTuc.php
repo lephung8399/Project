@@ -172,7 +172,7 @@ mysqli_query($con,$sql);
 					?>
 					
 					<div id="cmt">
-						<h1>Bình Luận</h1>
+						<h1 >Bình Luận</h1>
 						<?php if(!isset($_SESSION['User'])) {
 							// $User=$_SESSION['User'];
 							?>
@@ -190,34 +190,20 @@ mysqli_query($con,$sql);
 							
 
 								?>
-							<textarea  id="txt"  name="txtcmt" style="width: 600px; height: 100px" placeholder="Nhập bình luận vào ô trống..."></textarea>
+							<textarea  id="txt"  name="txtcmt" style="width: 600px; height: 100px; border: none; border-bottom: 1px solid grey" placeholder="Nhập bình luận của bạn..."></textarea>
 							<input type="number" name="maDocGia" value="<?php echo $maDocGia[0]; ?>" style="display: none;" readonly>
 							<span id="err"></span>
 							<input type="text" name="maTin" value="<?php echo $maTin;?>" style="display: none;" readonly>
 							<br>
 							<input type="submit" id="btnSUBMIT"  value="Bình luận" onclick="validate()" style="width: 120px; height: 30px">
 							<?php } ?>
-						</form>
-
-
-							<!-- <?php 
-
-							$conn = mysqli_connect("localhost","root","","project");
-							mysqli_set_charset($conn,"utf8");
-
-							$sql = mysqli_query($conn,"select * from tbldocgia where User='$user'"); 
-						if(isset($_POST['txtcmt'])) {
-							$cmt = $_POST['txtcmt'];
-							$conn = new mysqli("localhost", "root", "", "project");
-							$sql1 = "INSERT INTO `tblcmt`( `noiDungCmt`) VALUES ('$cmt')";
-							// echo $sql1;
-							mysqli_query($conn, $sql1);
-
-						}
-					 ?> -->
+						</form><br>
+						<!-- Hiển Thị Comment			  -->
 					 <?php 
 						if(isset($_POST['txtcmt']) || true){
 						// $xemcmt = $_POST['txtcmt'];
+						$conn = mysqli_connect("localhost","root","","project");
+						mysqli_set_charset($conn,"utf8");
 						$query="SELECT `maCmt`, `maTin`, `noiDungCmt`, `ngayCmt`, tbldocgia.tenDocGia as tenDocGia FROM `tblcmt` INNER JOIN tbldocgia on tblcmt.maDocGia = tbldocgia.maDocGia where maTin=$maTin and tinhTrang = 1 order by maCmt desc";
 						// echo $query;
 						$sql = mysqli_query($conn,$query);
@@ -226,11 +212,12 @@ mysqli_query($con,$sql);
 
 							while ($a = mysqli_fetch_array($sql)) {
 						?>
-
-						<input type="text" name="txtxemcmt" disabled="disabled" value="<?php echo $a["tenDocGia"].' : '.$a["noiDungCmt"].' || '.$a["ngayCmt"];
-						 ?>" style="width: 100%;">
-
-						<br>
+						<table>
+							<tr  height="100px" width="300px" name="txtxemcmt">
+								
+								<?php echo $a["tenDocGia"].' : '.$a["noiDungCmt"].' || '.$a["ngayCmt"]; ?>"
+							</tr>
+						</table>
 						
 						
 						<?php 
@@ -280,7 +267,7 @@ mysqli_query($con,$sql);
 								//moi tin la 1 dong
 								?>
 					            <tr>
-					            	<td style="border-bottom: 0.1px solid grey">
+					            	<td >
 					                	<table>
 					                    	<tr>
 					                        	<td rowspan="2"><img src="<?php echo($tinTuc["URLanh"])?>" height="100" width="150"/></td>
