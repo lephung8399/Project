@@ -201,7 +201,7 @@ session_start();
 								//moi tin la 1 dong
 								?>
 					            <tr>
-					            	<td style="border-bottom: 0.1px solid grey">
+					            	<td >
 					                	<table>
 					                    	<tr>
 					                        	<td rowspan="2"><img src="<?php echo($tinTuc["URLanh"])?>" height="100" width="150"/></td>

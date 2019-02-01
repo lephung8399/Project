@@ -42,20 +42,23 @@
 			<div id="menu">
 				<a href="?dog=1"><h3  style="display: inline-block; margin-left: 10px">Thông Tin Cá Nhân</h3></a>
 				<?php
-				 if(($_SESSION['maQuyen']) >1){?>
+				 if(($_SESSION['maQuyen']) >1 && ($_SESSION['tinhTrang'] == 1)){?>
 				 	<a href="?dog=2"><h3  style="display: inline-block; margin-left: 10px">Quản Lí Thể Loại</h3></a>
 				<?php }?>
-				<a href="?dog=3"><h3 style="display: inline-block; margin-left: 10px">Quản Lí Bài Viết</h3></a>
 				<?php
-				 if(($_SESSION['maQuyen']) >1){?>
+				if(($_SESSION['tinhTrang'] == 1)){?>
+				<a href="?dog=3"><h3 style="display: inline-block; margin-left: 10px">Quản Lí Bài Viết</h3></a>
+				 <?php } ?>
+				<?php
+				 if(($_SESSION['maQuyen']) >1 && ($_SESSION['tinhTrang'] == 1)){?>
 				<a href="?dog=4"><h3 style="display: inline-block; margin-left: 10px ">Quản Lí Comment</h3></a>
 				<?php }?>
 				<?php
-				 if(($_SESSION['maQuyen']) >1){?>
+				 if(($_SESSION['maQuyen']) >1 && ($_SESSION['tinhTrang'] == 1)){?>
 				<a href="?dog=5"><h3 style="display: inline-block; margin-left: 10px">Quản Lí Độc Giả</h3></a>
 				<?php }?>
 				<?php
-				if(($_SESSION['maQuyen']) == 3){?>
+				if(($_SESSION['maQuyen']) == 3 && ($_SESSION['tinhTrang'] == 1)){?>
 				<a href="?dog=6"><h3 style="display: inline-block; margin-left: 10px">Quản Lí Tài Khoản</h3></a>
 				<?php }?>
 

@@ -23,6 +23,8 @@
 				echo $_SESSION['maTaiKhoan'];
 				$_SESSION['maQuyen'] = $USER['maQuyen'];
 				echo $_SESSION['maQuyen'];
+				$_SESSION['tinhTrang'] = $USER['tinhTrang'];
+				echo $_SESSION['tinhTrang'];
 			}
 			header("location:home.php");
 			mysqli_close($con);	

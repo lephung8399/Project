@@ -89,12 +89,13 @@ if(($_SESSION['maQuyen']) < 3) header("location: index.php");
 	?>
 		<table border="2px"; cellspacing="3" cellpadding="0" style="width: 100%">
 			<tr>
-				<th style="width: 5%">Mã TK</th>
-				<th style="width: 5%">Tên</th>
-				<th style="width: 5%">Tên Tài Khoản</th>
-				<th style="width: 10%">Mật Khẩu</th>
-				<th style="width: 25%">Email</th>
+				<th style="width: max-width">Mã TK</th>
+				<th style="width: max-width">Tên</th>
+				<th style="width: max-width">Tên Tài Khoản</th>
+				<th style="width:max-width">Mật Khẩu</th>
+				<th style="width: 15%">Email</th>
 				<th style="width: 25%">Quyền Hạn</th>
+				<th style="width: 10%">Tình Trạng</th>
 				<th style="width: 25%">Chức năng</th>
 			</tr>
 			<?php
@@ -126,9 +127,18 @@ if(($_SESSION['maQuyen']) < 3) header("location: index.php");
 						<!-- CHỨC NĂNG CỦA SUPERADMIN(CÓ THỂ THAY ĐỔI QUYỀN HẠN)<input type="text" name="txtMaQuyen" value="<?php echo($QLadmin["maQuyen"]);?>" > -->
 					</td>
 					<td>
+						<?php
+							if($QLadmin["tinhTrang"] == 1){echo "Hoạt động";}
+							if($QLadmin["tinhTrang"] == 0){echo "Đã khóa";}
+						?> 
+
+					</td>
+					<td>
 						<input type="submit" onclick="return confirm('Bạn có chắc muốn Thay đổi?')" value="Chỉnh Sửa">
 						
 						<button><a href="xoaTaiKhoanAdmin.php?id=<?php echo($QLadmin["maTaiKhoan"]);?>" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a></button>
+						<button><a href="HienTaiKhoanAdmin.php?maTaiKhoan=<?php echo($QLadmin["maTaiKhoan"]);?>">Hoạt động</a></button>
+						<button><a href="khoaTaiKhoanAdmin.php?maTaiKhoan=<?php echo($QLadmin["maTaiKhoan"]);?>">Khóa</a></button>
 					</td>
 				</tr>
 			</form>
