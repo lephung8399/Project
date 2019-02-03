@@ -228,10 +228,7 @@
 						</td>	
 					</tr>
 				</div>
-				<?php
-
-			}
-				?>
+				
 				</div>
 				
 			</table>
@@ -239,6 +236,10 @@
 					<a class="a1" href='suaProcess/suapassProcess.php?id=<?php echo$a["maDocGia"]?>'>Đổi Mật Khẩu</a>
 					<a class="a2" href='suaProcess/suaHoTenProcess.php?id=<?php echo$a["maDocGia"]?>'>Sửa</a>
 				</div>
+				<?php
+
+			}
+				?>
 
 <!-- 				<div id="thongTinCaNhan" style="background-color: red">
 					<table border="1" style="margin: auto; height: 200px; width: 700px">

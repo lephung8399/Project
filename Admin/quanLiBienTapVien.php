@@ -52,7 +52,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 						<input type="text" name="txtDiaChi" value="<?php echo($taikhoan["diaChi"]);?>" >
 					</td>
 					<td>
-						<input type="text" name="txtGT" value="<?php if($taikhoan["gioiTinh"]==0){echo "Nữ";}
+						<input type="text" name="txtGT" style="width: 20%" value="<?php if($taikhoan["gioiTinh"]==0){echo "Nữ";}
 							if($taikhoan["gioiTinh"]==1){echo "Nam";}
 						?>" >
 					</td>

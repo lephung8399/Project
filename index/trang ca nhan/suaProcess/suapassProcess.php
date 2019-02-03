@@ -4,6 +4,7 @@
 	$pass=$_SESSION["Pass"];
 	$conn = mysqli_connect("localhost","root","","project");
 	mysqli_set_charset($conn,'utf8');
+	
 	$thongtin = mysqli_query($conn,"select * from tbldocgia where User='$user' and Pass='$pass'");
  ?>
 
@@ -85,6 +86,7 @@
 	</style>
 	<script type="text/javascript">
 		function thaydoi() {
+			var matkhauDB = <?php echo $pass ?>;
 			var passcu=document.getElementById('txtMatKhauCu').value;
 			var pass=document.getElementById('txtMatKhau').value;
 
@@ -96,44 +98,34 @@
 			var dem=0;
 
 			if(pass.length==0)
-		{
-			document.getElementById("txtMatKhau").style.border="2px solid red";
-		}else
-		{
-			var kqMatKhau=regMatKhau.test(pass);
-			if(kqMatKhau)
 			{
-				errMatKhau.innerHTML="";
-				document.getElementById("txtMatKhau").style.border="2px solid 	#7FFF00";
-				dem++;		
+				document.getElementById("txtMatKhau").style.border="2px solid red";
 			}else
 			{
-				document.getElementById("txtMatKhau").style.border="2px solid red";	
+				var kqMatKhau=regMatKhau.test(pass);
+				if(kqMatKhau)
+				{
+					errMatKhau.innerHTML="";
+					document.getElementById("txtMatKhau").style.border="2px solid 	#7FFF00";
+					dem++;		
+				}else
+				{
+					document.getElementById("txtMatKhau").style.border="2px solid red";	
+				}
 			}
-		}
 
-
-		if(passcu.length==0)
-		{
-				
-			document.getElementById("txtMatKhauCu").style.border="2px solid red";
-		}else
-		{
-			var kqMatKhauCu=regMatKhauCu.test(passcu);
-			if(kqMatKhauCu)
+			if(passcu == matkhauDB)
 			{
 				document.getElementById("txtMatKhauCu").style.border="2px solid 	#7FFF00";
-				dem++;		
-			}else
-			{
-					
-				document.getElementById("txtMatKhauCu").style.border="2px solid red";	
+				dem++;
 			}
-		}
-		if(dem==2)
-		{
-			document.getElementById("frm").type = "submit";	+96
-		}
+			else{
+				document.getElementById("txtMatKhau").style.border="2px solid red";	
+			}
+			
+			if (dem==2) {
+				document.getElementById("frm").type = "submit";	
+			}	
 	}
 	</script>
 </head>
