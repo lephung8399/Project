@@ -8,7 +8,7 @@ if(isset($_GET["txtTen"])&&isset($_GET["txtUser"])&&isset($_GET["txtPass"])&&iss
 	$Quyen=$_GET["Quyen"];
 
 	include("../connectDb/open.php");
-	$sql = "INSERT INTO `tbladmin`( `tenAdmin`, `tenTaiKhoan`, `password`, `email`, `maQuyen`) VALUES ('$txtTen','$txtUser','$txtPass','$txtEmail','$Quyen')";
+	$sql = "INSERT INTO `tbladmin`( `tenAdmin`, `tenTaiKhoan`, `password`, `email`, `maQuyen`,tinhTrang) VALUES ('$txtTen','$txtUser','$txtPass','$txtEmail','$Quyen',1)";
 	echo $sql;
 	mysqli_query($con, $sql);
 	include("../connectDb/close.php");

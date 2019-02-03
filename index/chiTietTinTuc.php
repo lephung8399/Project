@@ -226,9 +226,9 @@ mysqli_query($con,$sql);
 						?>
 					</div>
 					<div id="tinLienQuan">
-						<h2>Tin liên quan:</h2>
+						<h2 style="border-bottom: 5px solid #5FD9E2">Tin liên quan</h2>
 				        	<?php
-							$result=mysqli_query($con,"select * from tbltintuc where maTheLoai=(select maTheLoai from tbltintuc where maTin=$maTin) and tinhTrang=1 order by maTin desc limit 4");
+							$result=mysqli_query($con,"select * from tbltintuc where maTheLoai=(select maTheLoai from tbltintuc where maTin=$maTin) and tinhTrang=1 order by maTin desc limit 5");
 							
 							?>
 				            <table>
@@ -237,7 +237,15 @@ mysqli_query($con,$sql);
 								{
 									?>
 				                    <tr>
-				                		<td><a href="chiTietTinTuc.php?maTin=<?php echo($tinLienQuan["maTin"]);?>"><?php echo($tinLienQuan["tieuDe"]);?></a></td>
+				                		<td><a href="chiTietTinTuc.php?maTin=<?php echo($tinLienQuan["maTin"]);?>" style="text-decoration: none">
+				                			<ul>
+				                				<li>
+				                					<?php echo($tinLienQuan["tieuDe"]); ?>
+				                						
+				                					</li>
+				                				</ul>
+				                			</a>
+				                		</td>
 				               		 </tr>
 				                    <?php	
 								}
