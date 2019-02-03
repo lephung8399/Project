@@ -131,15 +131,15 @@ margin: auto;
 	width: 100%;
 	height: 30px;
 	background-color: white;
-	border-bottom: 1px solid grey;
-	border-top: 1px solid grey;
+	border-bottom: 2px solid #5FD9E2;
+	border-top: 2px solid #5FD9E2;
 }
 #TinTin{
 	width: 100%;
 	height: max-height;
 	margin: auto;
 	background-color: ;
-	border-bottom: 1px solid grey;
+	border-bottom: 2px solid #5FD9E2;
 }
 #cmt{
 	width: 95%;

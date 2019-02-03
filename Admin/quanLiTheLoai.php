@@ -79,9 +79,9 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 						<td>
 							<input type="submit" onclick="return confirm('Bạn có chắc muốn Thay đổi?')" value="Chỉnh Sửa">
 							
-							<button>
+							<!-- <button>
 								<a href="xoaTheLoai.php?id=<?php echo($theloai["maTheLoai"]);?>" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a>
-							</button>
+							</button> -->
 						</td>
 					</tr>
 				</form>				
