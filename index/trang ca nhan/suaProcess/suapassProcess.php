@@ -87,6 +87,7 @@
 	<script type="text/javascript">
 		function thaydoi() {
 			var matkhauDB = <?php echo $pass ?>;
+			var passlai=document.getElementById('txtMatKhauLai').value;
 			var passcu=document.getElementById('txtMatKhauCu').value;
 			var pass=document.getElementById('txtMatKhau').value;
 
@@ -122,10 +123,19 @@
 			else{
 				document.getElementById("txtMatKhau").style.border="2px solid red";	
 			}
+			if (pass==passlai) {
+				document.getElementById("txtMatKhauLai").style.border="2px solid 	#7FFF00";
+				dem++;	
+			}
+			else{
+				/*document.getElementById("txtMatKhauLai").alert("Mật khẩu không khớp");*/
+				document.getElementById("txtMatKhauLai").style.border="2px solid red"
+			}
 			
-			if (dem==2) {
+			if (dem==3) {
 				document.getElementById("frm").type = "submit";	
-			}	
+			}
+
 	}
 	</script>
 </head>
@@ -230,6 +240,8 @@
 					Mật Khẩu Cũ: <input type="password" name="tntpasscu" id="txtMatKhauCu" /> <br />
 					<span id="errMatKhauCu" ></span>
 					Mật Khẩu Mới: <input type="password" name="tntPass" id="txtMatKhau"><br />
+					<span id="errMatKhau"></span>
+					Nhập Lại Mật Khẩu: <input type="password" name="tntPassLai" id="txtMatKhauLai"><br />
 					<span id="errMatKhau"></span>
 					<button type="button" name="ma" id="frm" onclick="thaydoi()" value="<?php echo $id;?>">Thay Đổi</button>
 				</form>
