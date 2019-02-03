@@ -4,6 +4,7 @@
 	$pass=$_SESSION["Pass"];
 	$conn = mysqli_connect("localhost","root","","project");
 	mysqli_set_charset($conn,'utf8');
+	
 	$thongtin = mysqli_query($conn,"select * from tbldocgia where User='$user' and Pass='$pass'");
  ?>
 
@@ -83,6 +84,50 @@
 			background-color: #d0d0d0
 		}
 	</style>
+	<script type="text/javascript">
+		function thaydoi() {
+			var matkhauDB = <?php echo $pass ?>;
+			var passcu=document.getElementById('txtMatKhauCu').value;
+			var pass=document.getElementById('txtMatKhau').value;
+
+			var errMatKhauCu=document.getElementById("errMatKhauCu");
+			var errMatKhau=document.getElementById("errMatKhau");
+
+			var regMatKhauCu=/^[a-zA-Z0-9]+$/;
+			var regMatKhau=/^[a-zA-Z0-9]+$/;
+			var dem=0;
+
+			if(pass.length==0)
+			{
+				document.getElementById("txtMatKhau").style.border="2px solid red";
+			}else
+			{
+				var kqMatKhau=regMatKhau.test(pass);
+				if(kqMatKhau)
+				{
+					errMatKhau.innerHTML="";
+					document.getElementById("txtMatKhau").style.border="2px solid 	#7FFF00";
+					dem++;		
+				}else
+				{
+					document.getElementById("txtMatKhau").style.border="2px solid red";	
+				}
+			}
+
+			if(passcu == matkhauDB)
+			{
+				document.getElementById("txtMatKhauCu").style.border="2px solid 	#7FFF00";
+				dem++;
+			}
+			else{
+				document.getElementById("txtMatKhau").style.border="2px solid red";	
+			}
+			
+			if (dem==2) {
+				document.getElementById("frm").type = "submit";	
+			}	
+	}
+	</script>
 </head>
 <body>
 	<div id="main">
@@ -181,10 +226,12 @@
 				
 					$id=$_GET["id"];
 				?>
-				<form method="POST" action="xulipass.php" >
-					Password: <input type="text" name="tntPass" id="txtMatKhau">
+				<form method="POST"  action="xulipass.php"  >
+					Mật Khẩu Cũ: <input type="password" name="tntpasscu" id="txtMatKhauCu" /> <br />
+					<span id="errMatKhauCu" ></span>
+					Mật Khẩu Mới: <input type="password" name="tntPass" id="txtMatKhau"><br />
 					<span id="errMatKhau"></span>
-					<button type="submit" name="ma" value="<?php echo $id;?>">Thay Đổi</button>
+					<button type="button" name="ma" id="frm" onclick="thaydoi()" value="<?php echo $id;?>">Thay Đổi</button>
 				</form>
 				<?php
 				}

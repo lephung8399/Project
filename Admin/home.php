@@ -34,8 +34,6 @@
 			height: 60px;
 			background: dodgerblue
 		}
-		/*HƯng rất đẹp zai*/
-
 	</style>
 </head>
 <body>

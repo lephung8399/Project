@@ -180,7 +180,7 @@
 <form method="POST" action="xuli.php" >
 		Họ Tên: <input type="text"  name="tntHoTen" id="txtHo"><br>
 		Email: <input type="email" name="tntEmail" id="txtEmail"><br>
-		Địa Chỉ: <input type="text" name="tntDiaChi" id="textDiaChi"><br>
+		Địa Chỉ: <input type="text" name="tntDiaChi" id="textDiaChi"><br>s
 		<button type="submit" name="ma" value="<?php echo $id;?>">Thay Đổi</button><br>
 </form>
 	<?php
