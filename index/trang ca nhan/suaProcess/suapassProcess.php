@@ -37,7 +37,7 @@
 		table{
 			color: red;
 			background-color: #f9f9f9;
-			width: 100%
+			width: 70% ;
 		}
 		#size{
 
@@ -236,14 +236,48 @@
 				
 					$id=$_GET["id"];
 				?>
-				<form method="POST"  action="xulipass.php"  >
-					Mật Khẩu Cũ: <input type="password" name="tntpasscu" id="txtMatKhauCu" /> <br />
-					<span id="errMatKhauCu" ></span>
-					Mật Khẩu Mới: <input type="password" name="tntPass" id="txtMatKhau"><br />
-					<span id="errMatKhau"></span>
-					Nhập Lại Mật Khẩu: <input type="password" name="tntPassLai" id="txtMatKhauLai"><br />
-					<span id="errMatKhau"></span>
-					<button type="button" name="ma" id="frm" onclick="thaydoi()" value="<?php echo $id;?>">Thay Đổi</button>
+				<form method="POST"  action="xulipass.php" >
+			<center>
+				<h3>Đổi Mật Khẩu</h3>
+					<table>
+						<tr>
+							<td>
+								Mật Khẩu Cũ:
+							</td> 
+							<td>
+								<input type="password" name="tntpasscu" id="txtMatKhauCu" /> <br />
+							</td>							
+								<span id="errMatKhauCu" ></span>							
+						</tr>
+						<tr>
+							<td>
+								Mật Khẩu Mới:
+							</td> 
+							<td>
+								<input type="password" name="tntPass" id="txtMatKhau"><br />
+							</td>
+								<span id="errMatKhau"></span>
+						</tr>
+						<tr>
+							<td>
+								Nhập Lại Mật Khẩu:
+							</td>
+							<td>
+								 <input type="password" name="tntPassLai" id="txtMatKhauLai"><br />
+							</td>
+								<span id="errMatKhau"></span>							
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<center>
+									<button type="button" name="ma" id="frm" onclick="thaydoi()" value="<?php echo $id;?>">Thay Đổi</button>
+								</center>
+							</td>
+							<td></td>
+						</tr>
+					</table>
+				</center>s
 				</form>
 				<?php
 				}
