@@ -36,7 +36,7 @@
 		table{
 			color: red;
 			background-color: #f9f9f9;
-			width: 100%
+			width: 70%
 		}
 		#size{
 
@@ -178,10 +178,44 @@
 		$id=$_GET["id"];
 	?>
 <form method="POST" action="xuli.php" >
-		Họ Tên: <input type="text"  name="tntHoTen" id="txtHo"><br>
-		Email: <input type="email" name="tntEmail" id="txtEmail"><br>
-		Địa Chỉ: <input type="text" name="tntDiaChi" id="textDiaChi"><br>s
-		<button type="submit" name="ma" value="<?php echo $id;?>">Thay Đổi</button><br>
+	<center>
+		<h3>Chỉnh Thông Tin Cá Nhân</h3>
+		<table>
+			<tr>
+				<td>
+					Họ Tên:
+				</td> 
+				<td>
+					<input type="text"  name="tntHoTen" id="txtHo"><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Email:
+				</td>
+				<td>
+				 	<input type="email" name="tntEmail" id="txtEmail"><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Địa Chỉ:
+				</td>
+				<td>
+					<input type="text" name="tntDiaChi" id="textDiaChi"><br>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<center>
+						<button type="submit" name="ma" value="<?php echo $id;?>">Thay Đổi</button><br>
+					</center>
+				</td>
+				<td></td>
+			</tr>
+		</table>
+	</center>
 </form>
 	<?php
 	}

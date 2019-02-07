@@ -37,7 +37,7 @@
 		table{
 			color: red;
 			background-color: #f9f9f9;
-			width: 100%
+			width: 70% ;
 		}
 		#size{
 
@@ -87,6 +87,7 @@
 	<script type="text/javascript">
 		function thaydoi() {
 			var matkhauDB = <?php echo $pass ?>;
+			var passlai=document.getElementById('txtMatKhauLai').value;
 			var passcu=document.getElementById('txtMatKhauCu').value;
 			var pass=document.getElementById('txtMatKhau').value;
 
@@ -122,10 +123,19 @@
 			else{
 				document.getElementById("txtMatKhau").style.border="2px solid red";	
 			}
+			if (pass==passlai) {
+				document.getElementById("txtMatKhauLai").style.border="2px solid 	#7FFF00";
+				dem++;	
+			}
+			else{
+				/*document.getElementById("txtMatKhauLai").alert("Mật khẩu không khớp");*/
+				document.getElementById("txtMatKhauLai").style.border="2px solid red"
+			}
 			
-			if (dem==2) {
+			if (dem==3) {
 				document.getElementById("frm").type = "submit";	
-			}	
+			}
+
 	}
 	</script>
 </head>
@@ -226,6 +236,7 @@
 				
 					$id=$_GET["id"];
 				?>
+<<<<<<< HEAD
 				<table>
 					<form method="POST"  action="xulipass.php"  >
 						<tr>
@@ -249,6 +260,51 @@
 						</tr>
 					</form>
 				</table>
+=======
+				<form method="POST"  action="xulipass.php" >
+			<center>
+				<h3>Đổi Mật Khẩu</h3>
+					<table>
+						<tr>
+							<td>
+								Mật Khẩu Cũ:
+							</td> 
+							<td>
+								<input type="password" name="tntpasscu" id="txtMatKhauCu" /> <br />
+							</td>							
+								<span id="errMatKhauCu" ></span>							
+						</tr>
+						<tr>
+							<td>
+								Mật Khẩu Mới:
+							</td> 
+							<td>
+								<input type="password" name="tntPass" id="txtMatKhau"><br />
+							</td>
+								<span id="errMatKhau"></span>
+						</tr>
+						<tr>
+							<td>
+								Nhập Lại Mật Khẩu:
+							</td>
+							<td>
+								 <input type="password" name="tntPassLai" id="txtMatKhauLai"><br />
+							</td>
+								<span id="errMatKhau"></span>							
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<center>
+									<button type="button" name="ma" id="frm" onclick="thaydoi()" value="<?php echo $id;?>">Thay Đổi</button>
+								</center>
+							</td>
+							<td></td>
+						</tr>
+					</table>
+				</center>s
+				</form>
+>>>>>>> 5aadea3a16124919c33bf5c832fb022c3c097243
 				<?php
 				}
 				?>
