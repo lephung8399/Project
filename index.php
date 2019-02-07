@@ -176,7 +176,7 @@ session_start();
 						?>
 					<img src="<?php echo substr(($tinTuc["URLanh"]),3)?>" height="100%" width="100%">
 					<!-- <img src="img/news200.jpg"  style="max-width: 100%; height: 100%; left: 3px;width: 100%; display: inline; position: absolute; "> -->
-					<div id="abc"><h3><a href="index/chiTietTinTuc.php?maTin=<?php echo($tinTuc["maTin"]);?>" style="font-weight: 500;font-size: 37px; text-decoration: none; color: white; font-family: sans-serif;">
+					<div class="aslide"><h3><a href="index/chiTietTinTuc.php?maTin=<?php echo($tinTuc["maTin"]);?>" style="font-weight: 500;font-size: 37px; text-decoration: none; color: white; font-family: sans-serif;">
 							<?php			
 						 echo($tinTuc["tieuDe"])?>
 					 </a></h3>
@@ -192,7 +192,7 @@ session_start();
 									?>
 								<img src="<?php echo substr(($tinTuc2["URLanh"]),3)?>" height="100%" width="100%">
 								<!-- <img src="img/news202.jpg" style="max-width: 100%; height: 100%; left: 3px;width: 100%; display: inline; position: absolute; margin-left: 3px"> -->
-								<div id="abc"><h3><a href="index/chiTietTinTuc.php?maTin=<?php echo($tinTuc2["maTin"]);?>" class="aslide"><?php $sql="select * from tbltintuc order by  maTin desc limit 2";
+								<div ><h3><a href="index/chiTietTinTuc.php?maTin=<?php echo($tinTuc2["maTin"]);?>" class="aslide"><?php $sql="select * from tbltintuc order by  maTin desc limit 2";
 								 echo($tinTuc2["tieuDe"])?></a></h3>
 								</div>					
 							</div>
@@ -205,7 +205,7 @@ session_start();
 									?>
 								<img src="<?php echo substr(($tinTuc3["URLanh"]),3)?>" height="100%" width="100%">
 								<!-- <img src="img/buom4.gif" style="max-width: 100%; height: 100%; left: 3px;  display: inline; position: absolute; width: 100%; position: absolute;"> -->
-								<div id="abc"><h3><a href="index/chiTietTinTuc.php?maTin=<?php echo($tinTuc3["maTin"]);?>" class="aslide">
+								<div ><h3><a href="index/chiTietTinTuc.php?maTin=<?php echo($tinTuc3["maTin"]);?>" class="aslide">
 								<?php $sql="select * from tbltintuc order by  maTin desc limit 3";
 								 echo($tinTuc3["tieuDe"])?></a></h3></div>
 							</div>
@@ -216,7 +216,7 @@ session_start();
 									?>
 								<img src="<?php echo substr(($tinTuc4["URLanh"]),3)?>" height="100%" width="100%">
 								<!-- <img src="img/news201.jpg" style="max-width: 100%; height: 100%; left: 3px;  display: inline; position: absolute; width: 100%; position: absolute; margin-left: 3px"> -->
-								<div id="abc"><h3><a href="index/chiTietTinTuc.php?maTin=<?php echo($tinTuc4["maTin"]);?>" class="aslide">
+								<div ><h3><a href="index/chiTietTinTuc.php?maTin=<?php echo($tinTuc4["maTin"]);?>" class="aslide">
 								<?php $sql="select * from tbltintuc order by  maTin desc limit 2";
 								 echo($tinTuc4["tieuDe"])?></a></h3></div>
 							</div>
@@ -227,11 +227,11 @@ session_start();
 			<div id="space"></div>
 			<div id="content">
 				<div id="congNghe">
-					<div id="leftTittle">
-						<div id="tittleMain">
-							<div id="chamcham"></div>
-							<div id="tieuDe" style="position: relative; "><h2 style="position: absolute;text-align: center; letter-spacing: 7px; text-transform: uppercase; font-family: sans-serif;">Công Nghệ</h2></div>
-							<div id="chamcham"></div>
+					<div>
+						<div class="tittleMain">
+							<div class="chamcham"></div>
+							<div class="tieuDe" style="position: relative; "><h2 style="position: absolute;text-align: center; letter-spacing: 7px; text-transform: uppercase; font-family: sans-serif;">Công Nghệ</h2></div>
+							<div class="chamcham"></div>
 						</div>
 					</div>
 					<div id="tinTheLoai">
@@ -261,12 +261,12 @@ session_start();
 				</div>
 				<br>
 				<div id="thegioi">
-					<div id="leftTittle">
-						<div id="tittleMain">
-							<div id="chamcham"></div>
-							<div id="tieuDe" style="position: relative; ">
+					<div >
+						<div class="tittleMain">
+							<div class="chamcham"></div>
+							<div class="tieuDe" style="position: relative; ">
 								<h2 style="position: absolute;text-align: center; letter-spacing: 7px; text-transform: uppercase; font-family: sans-serif;">Thế Giới</h2></div>
-							<div id="chamcham"></div>
+							<div class="chamcham"></div>
 						</div>
 					</div>
 					<div id="tinTheLoai2">
@@ -298,12 +298,12 @@ session_start();
 				</div>
 								<br>
 				<div id="thethao">
-					<div id="leftTittle">
-						<div id="tittleMain">
-							<div id="chamcham"></div>
-							<div id="tieuDe" style="position: relative; ">
+					<div>
+						<div class="tittleMain">
+							<div class="chamcham"></div>
+							<div class="tieuDe" style="position: relative; ">
 								<h2 style="position: absolute;text-align: center; letter-spacing: 7px; text-transform: uppercase; font-family: sans-serif;">Thể Thao</h2></div>
-							<div id="chamcham"></div>
+							<div class="chamcham"></div>
 						</div>
 					</div>
 					<div id="tinTheLoai3">
@@ -335,12 +335,12 @@ session_start();
 				</div>
 				<p>
 				<div id="phongcach">
-					<div id="leftTittle">
-						<div id="tittleMain">
-							<div id="chamcham"></div>
-							<div id="tieuDe" style="position: relative; ">
+					<div>
+						<div class="tittleMain">
+							<div class="chamcham"></div>
+							<div class="tieuDe" style="position: relative; ">
 								<h2 style="position: absolute;text-align: center; letter-spacing: 7px; text-transform: uppercase; font-family: sans-serif;">Phong Cách</h2></div>
-							<div id="chamcham"></div>
+							<div class="chamcham"></div>
 						</div>
 					</div>
 					<div id="tinTheLoai4">
