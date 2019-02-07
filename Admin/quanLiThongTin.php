@@ -45,27 +45,43 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 				<form action="InforProcess.php">
 						<table id="tableInfor">
 							<tr>
-								<td>Mã Tài Khoản:</td>
+								<td><strong>Mã Tài Khoản:</strong></td>
 								<td>
 									<input type="text" name="txtma" value="<?php echo($infor["maTaiKhoan"]);?>" readonly="readonly">
 								</td>
 							</tr>
 							<tr>
-								<td>Tên Tài Khoản</td>
+								<td><b>Tên Admin</b></td>
+								<td>
+									<input type="text" name="txtTenAdmin" value="<?php echo($infor["tenAdmin"]);?>" >
+								</td>
+							</tr>
+							<tr>
+								<td><b>Tên Tài Khoản</b></td>
 								<td>
 									<input type="text" name="txtTenTK" value="<?php echo($infor["tenTaiKhoan"]);?>" >
 								</td>
 							</tr>
 							<tr>
-								<td>Email</td>
+								<td><b>Email</b></td>
 								<td>
 									<input type="text" name="txtEmail" value="<?php echo($infor["email"]);?>" >
 								</td>
 							</tr>
 							<tr>
-								<td>Mật Khẩu:</td>
+								<td><b>Mật Khẩu:</b></td>
 								<td>
-									<input type="password" name="txtPass" value="<?php echo('********');?>" >
+									<input type="password" name="txtPass" value="<?php echo('password');?>" >
+								</td>
+							</tr>
+							<tr>
+								<td><b>Trạng Thái:</b></td>
+								<td style="color: red">
+									
+									<?php  if($infor["tinhTrang"] == 1){echo 'Hoạt động';}
+											if($infor["tinhTrang"] == 0){echo "Đã bị khóa";}
+									?>
+									
 								</td>
 							</tr>
 								
@@ -75,7 +91,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 							?>
 						</table>
 					
-						<input type="submit" value="Cập Nhật" onclick="return confirm('Bạn có chắc muốn cập nhật?')" class="btn info">
+						<input type="submit" value="Cập Nhật" onclick="return confirm('Bạn có chắc muốn cập nhật?')"  >
 						</form>
 						<?php 
 						include("../connectDb/close.php");
