@@ -11,8 +11,6 @@
 			$query = mysqli_query($conn,$sql);
 			 
 			 mysqli_close($conn);
-			 header("location: ../index.php");
-		}else{
-		header("location: ../index.php");
-	}
+		}
+		header('location: ../index.php');
  ?>
