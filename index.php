@@ -376,7 +376,7 @@ session_start();
 
 		</div>
 		<!-- Go to the Top BUTTON -->
-		<button onclick="topFunction()" id="myBtn" title="Go to top">Trên</button>
+		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 			<script>
 			// When the user scrolls down 20px from the top of the document, show the button
 			window.onscroll = function() {scrollFunction()};
