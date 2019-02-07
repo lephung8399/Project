@@ -29,7 +29,7 @@ AND Pass = '$pass'";
 				$_SESSION['Pass'] = $USER['Pass'];
 				echo $_SESSION['Pass'];
 		}
-		header("Location:../index.php");	
+		header("Location: trang ca nhan/index.php");	
 				mysqli_close($con);
 	}
 }
