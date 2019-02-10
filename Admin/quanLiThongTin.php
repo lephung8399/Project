@@ -79,7 +79,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 								<td style="color: red">
 									
 									<?php  if($infor["tinhTrang"] == 1){echo 'Hoạt động';}
-											if($infor["tinhTrang"] == 0){echo "Đã bị khóa";}
+											if($infor["tinhTrang"] == 0){echo "Đã bị khóa (Vui lòng liên hệ với Admin)";}
 									?>
 									
 								</td>
