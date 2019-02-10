@@ -236,8 +236,8 @@
 				
 					$id=$_GET["id"];
 				?>
-<<<<<<< HEAD
-				<table>
+
+				<!-- <table>
 					<form method="POST"  action="xulipass.php"  >
 						<tr>
 						 <td>Mật Khẩu Cũ: </td>
@@ -259,8 +259,8 @@
 							</button>
 						</tr>
 					</form>
-				</table>
-=======
+				</table> -->
+
 				<form method="POST"  action="xulipass.php" >
 			<center>
 				<h3>Đổi Mật Khẩu</h3>
@@ -302,9 +302,9 @@
 							<td></td>
 						</tr>
 					</table>
-				</center>s
+				</center>
 				</form>
->>>>>>> 5aadea3a16124919c33bf5c832fb022c3c097243
+
 				<?php
 				}
 				?>

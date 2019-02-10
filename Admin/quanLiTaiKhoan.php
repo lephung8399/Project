@@ -30,47 +30,100 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 </head>
 <body>
 	<a href="#" style="text-decoration: none;  font-size: 27px; font-family:  monospace;"><strong>Quản lí tài khoản độc giả</strong></a>
+	<br>
+			<form method="POST">
+				<table cellpadding="20px" cellspacing="0">
+					<tr>
+						<td  width="270px">
+							<strong>
+								Tên Độc Giả
+							</strong>
+							<input type="hidden" value="0" name="search" >
+							<input type="text" name="tenDocGia" style="width: 250px" value="<?php if(isset($_POST['tenDocGia'])) echo $_POST['tenDocGia']; ?>" >
+						</td>
+						<td width="120px">
+						<strong>
+							Tên Tài Khoản</strong>
+							<input type="text" name="User" style="width: 100px" value="<?php if(isset($_POST['User'])) echo $_POST['User']; ?>">
+						</td>
+						<td width="120px">
+						<strong>
+							Email</strong>
+							<input type="text" name="email" style="width: 100px" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>">
+						</td>
+						<td width="120px">
+						<strong>
+							Tình Trạng</strong>
+							<select name="tinhTrang">
+							<option value="999" selected <?php if(isset($_POST['tinhTrang'])) if($_POST['tinhTrang']== 999) echo "selected" ?>>
+							---Chọn Tình Trạng---</option>
+							<option value="1" <?php if(isset($_POST['tinhTrang'])) if($_POST['tinhTrang']== 1) echo "selected" ?>>
+							Hoạt động</option>
+							<option value="0" <?php if(isset($_POST['tinhTrang'])) if($_POST['tinhTrang']== 0) echo "selected" ?>>
+							Đã bị khóa</option>
+						</select>
+						</td>
+						<td>
+							<button type="submit" name="dog" value="5">Tìm kiếm</button>
+						</td>
+					</tr>
+				</table>
+			</form>
 	<?php
 	include("../connectDb/open.php");
 	mysqli_set_charset($con,'utf8');
 	$sql=("select * from tbldocgia");
+	if(isset($_POST["search"])&&$_POST["search"]==0)
+        	{
+                $tenDocGia=$_POST["tenDocGia"];
+                $User=$_POST['User'];
+                $email=$_POST['email'];
+
+                $sql="select * from tbldocgia where tenDocGia like '%$tenDocGia%' AND User like '%$User%' AND email like '%$email%'";
+                if($_POST["tinhTrang"]!=999)
+                {
+                    $tinhTrang=$_POST["tinhTrang"];
+                    $sql=$sql." and tinhTrang=$tinhTrang";
+                }
+            }
 	$result=mysqli_query($con,$sql); 
 
 	?>
 		<table border="2px"; cellspacing="3" cellpadding="0" style="width: 100%">
 			<tr>
-				<th style="width: 5%">Mã Tài Khoản</th>
-				<th style="width: 10%">Tên Tài Khoản</th>
-				<th style="width: 10%">Mật Khẩu</th>
-				<th style="width: 15%">Tên Độc Giả</th>
-				<th style="width: 10%">Email</th>
-				<th style="width: 5%">Địa Chỉ</th>
-				<th style="width: 15%">Giới Tính</th>
-				<th style="width: 10%">Quyền Hạn</th>
-				<th style="width: 20%">Chức năng</th>
+				<th style="width: max-width">Mã Tài Khoản</th>
+				<th style="width:">Tên Tài Khoản</th>
+				<th style="width: ">Mật Khẩu</th>
+				<th style="width: ">Tên Độc Giả</th>
+				<th style="width:">Email</th>
+				<th style="width: ">Địa Chỉ</th>
+				<th style="width:">Giới Tính</th>
+				<th style="width: ">Quyền Hạn</th>
+				<th style="width: ">Trạng Thái</th>
+				<th style="width: ">Chức năng</th>
 			</tr>
 			<?php
 			while($taikhoan=mysqli_fetch_array($result)){
 				?>
 			<form action="suaTaiKhoan.php">
 				<tr>
-					<td>
-						<input type="text" name="txtMa" style="width: 20%" value="<?php echo($taikhoan["maDocGia"]);?>" readonly="readonly" >
-						</td>
-					<td>
-						<input type="text" name="txtUser" value="<?php echo($taikhoan["User"]);?>" >
+					<td style="width:10px">
+						<?php echo($taikhoan["maDocGia"]);?> 
 					</td>
 					<td>
-						<input type="password" name="txtPass" value="<?php echo($taikhoan["Pass"]);?>" >
+						<input type="text" name="txtUser" value="<?php echo($taikhoan["User"]);?>" style="width: 120px">
 					</td>
 					<td>
-						<input type="text" name="txtTen" value="<?php echo($taikhoan["tenDocGia"]);?>" >
+						<input type="password" name="txtPass" value="<?php echo($taikhoan["Pass"]);?>"  style="width: 100px">
 					</td>
 					<td>
-						<input type="text" name="txtEmail" value="<?php echo($taikhoan["email"]);?>" >
+						<input type="text" name="txtTen" value="<?php echo($taikhoan["tenDocGia"]);?>" style="width: 120px">
 					</td>
 					<td>
-						<input type="text" name="txtDiaChi" value="<?php echo($taikhoan["diaChi"]);?>" >
+						<input type="text" name="txtEmail" value="<?php echo($taikhoan["email"]);?>" style="width: 120px">
+					</td>
+					<td>
+						<input type="text" name="txtDiaChi" value="<?php echo($taikhoan["diaChi"]);?>" style="width: 120px">
 					</td>
 					<td>
 						<input type="radio" name="txtGT" value="1"  <?php if($taikhoan["gioiTinh"]==1) echo "checked";
@@ -86,10 +139,19 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 						?>
 						<!-- CHỨC NĂNG CỦA SUPERADMIN(CÓ THỂ THAY ĐỔI QUYỀN HẠN)<input type="text" name="txtMaQuyen" value="<?php echo($taikhoan["maQuyen"]);?>" > -->
 					</td>
+					<td style="color: red">
+						<?php
+							if($taikhoan["tinhTrang"] == 0){echo "Đã bị khóa";}
+							if($taikhoan["tinhTrang"] == 1){echo "Hoạt động";}
+						?>
+						
+					</td>
 					<td>
 						<input type="submit" onclick="return confirm('Bạn có chắc muốn Thay đổi?')" value="Chỉnh Sửa">
 						
 						<button><a href="xoaTaiKhoan.php?id=<?php echo($taikhoan["maDocGia"]);?>" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a></button>
+						<button><a href="activeTaiKhoanDocGia.php?maDocGia=<?php echo($taikhoan["maDocGia"]);?>">Hoạt động</a></button>
+						<button><a href="khoaTaiKhoanDocGia.php?maDocGia=<?php echo($taikhoan["maDocGia"]);?>">Khóa</a></button>
 					</td>
 				</tr>
 			</form>
