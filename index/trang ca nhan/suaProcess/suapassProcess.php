@@ -236,6 +236,31 @@
 				
 					$id=$_GET["id"];
 				?>
+
+				<!-- <table>
+					<form method="POST"  action="xulipass.php"  >
+						<tr>
+						 <td>Mật Khẩu Cũ: </td>
+						 <td>
+						 	<input type="password" name="tntpasscu" id="txtMatKhauCu" />
+						 	<span id="errMatKhauCu" ></span> 
+						 </td>
+						</tr>
+						<tr>
+							<td>Mật Khẩu Mới: </td>
+							<td>
+								<input type="password" name="tntPass" id="txtMatKhau">
+								<span id="errMatKhau"></span>
+							</td>
+						</tr>
+						
+						<tr>
+							<button type="button" class="edit" name="ma" id="frm" onclick="thaydoi()" value="<?php echo $id;?>">Thay Đổi
+							</button>
+						</tr>
+					</form>
+				</table> -->
+
 				<form method="POST"  action="xulipass.php" >
 			<center>
 				<h3>Đổi Mật Khẩu</h3>
@@ -277,8 +302,9 @@
 							<td></td>
 						</tr>
 					</table>
-				</center>s
+				</center>
 				</form>
+
 				<?php
 				}
 				?>

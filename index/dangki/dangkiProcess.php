@@ -15,7 +15,7 @@
  	else echo "Nu";*/
 
  	/*echo $gioiTinh? "Nam":"Nu";*/
- 	$sql = "INSERT INTO `tbldocgia`(`User`, `Pass`, `tenDocGia`, `sdt`, `email`, `diaChi`, `gioiTinh`, `maQuyen`) VALUES ('$user','$pass','$Ho $Ten','$DienThoai','$Email','$DiaChi',$gioiTinh,1)";
+ 	$sql = "INSERT INTO `tbldocgia`(`User`, `Pass`, `tenDocGia`, `sdt`, `email`, `diaChi`, `gioiTinh`, `maQuyen`,`tinhTrang`) VALUES ('$user','$pass','$Ho $Ten','$DienThoai','$Email','$DiaChi',$gioiTinh,1,1)";
  	if(mysqli_query($conn, $sql)){
 
  		mysqli_close($conn);

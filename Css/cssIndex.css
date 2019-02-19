@@ -55,7 +55,7 @@
 				height: 40%
 			}
 			
-			#abc{position: absolute;
+			/*.abc{position: absolute;*/
 				left: 10px;
 				display: inline;
 				/*padding-top: 160px;*/
@@ -83,7 +83,12 @@
 				position: relative;
 			}
 			.aslide{font-weight: 500; z-index: 99;
-				font-size: 25px; text-decoration: none; color: white; font-family: sans-serif;}
+				font-size: 25px; text-decoration: none; color: white; font-family: sans-serif; position: absolute;
+				left: 10px;
+				display: inline;
+				/*padding-top: 160px;*/
+				bottom: 2px;
+				margin: auto;}
 			
 			#menu {list-style: none;}
 				#menu ul {list-style: none; display: none; padding-left: 0;}
@@ -136,12 +141,12 @@
 				background-color: #5FD9E2;
 			}
 			
-			#tittleMain{
+			.tittleMain{
 				width: 100%;
 				height: 34px;
 				background-color: white;
 			}
-			#chamcham{
+			.chamcham{
 				width: 35%;
 				height: 7px;
 				float: left;
@@ -149,7 +154,7 @@
 				
 				background-repeat: repeat-x;
 			}
-			#tieuDe{
+			.tieuDe{
 				width: 30%;
 				height: 30px;
 				/*background-color: blue;*/

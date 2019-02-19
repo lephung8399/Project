@@ -50,7 +50,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 				<tr>
 					
 					<td >
-						Tên Thể Loại:
+						<b>Tên Thể Loại:</b>
 						<input type="text" name="txtSearch" placeholder="Nhập thể loại..." autofocus>
 					</td>
 					<td>

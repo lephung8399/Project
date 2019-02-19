@@ -11,7 +11,7 @@ if(isset($_POST["txtUser"])&&isset($_POST["txtPass"]))
 	$sql="SELECT *
 FROM `tbldocgia`
 WHERE User = '$user' 
-AND Pass = '$pass'";
+AND Pass = '$pass' AND tinhTrang=1";
 	$result=mysqli_query($con,$sql);
 	echo $sql;
 	$demSoBanGhi=mysqli_num_rows($result);
@@ -29,7 +29,7 @@ AND Pass = '$pass'";
 				$_SESSION['Pass'] = $USER['Pass'];
 				echo $_SESSION['Pass'];
 		}
-		header("Location:../index.php");	
+		header("Location: trang ca nhan/index.php");	
 				mysqli_close($con);
 	}
 }
