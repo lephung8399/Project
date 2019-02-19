@@ -254,8 +254,8 @@ mysqli_query($con,$sql);
 					</div>
 				</div>
 				<div id="tinNoiBat">
-					<div id="tittleTinNB">
-						<h3 style="width: 100%; margin: auto; text-align: left; padding-top: 10px">Được Quan Tâm Nhất</h3>
+					<div id="tittleTinNB" style="background: #CC0033">
+						<h3 style="width: 100%; margin: auto; text-align: left; padding-top: 15px;padding-left:10px;color: white; font-family: ">ĐƯỢC QUAN TÂM NHẤT</h3>
 					</div>
 					<div id="tinNB">
 						<?php
