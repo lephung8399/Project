@@ -33,7 +33,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 	<p>
 	<?php
 	include("../connectDb/open.php");
-	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tinhTrang =0 order by maCmt";
+	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tblcmt.tinhTrang =0 order by maCmt";
 	$result=mysqli_query($con,$sql);
 	?>
 	<!-- Những Comment Chưa Duyệt -->

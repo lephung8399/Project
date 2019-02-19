@@ -204,7 +204,7 @@ mysqli_query($con,$sql);
 						// $xemcmt = $_POST['txtcmt'];
 						$conn = mysqli_connect("localhost","root","","project");
 						mysqli_set_charset($conn,"utf8");
-						$query="SELECT `maCmt`, `maTin`, `noiDungCmt`, `ngayCmt`, tbldocgia.tenDocGia as tenDocGia FROM `tblcmt` INNER JOIN tbldocgia on tblcmt.maDocGia = tbldocgia.maDocGia where maTin=$maTin and tinhTrang = 1 order by maCmt desc";
+						$query="SELECT `maCmt`, `maTin`, `noiDungCmt`, `ngayCmt`, tbldocgia.tenDocGia as tenDocGia FROM `tblcmt` INNER JOIN tbldocgia on tblcmt.maDocGia = tbldocgia.maDocGia where maTin=$maTin and tblcmt.tinhTrang = 1 order by maCmt desc";
 						// echo $query;
 						$sql = mysqli_query($conn,$query);
 						mysqli_set_charset($conn,'utf8');
