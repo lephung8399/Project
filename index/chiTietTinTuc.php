@@ -44,7 +44,15 @@ mysqli_query($con,$sql);
 			}
 
 			#myBtn:hover {
-			  background-color: #555;
+			  background-color: #555;}
+			#ocmt{
+      width: 630px;
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-radius: 4px;
+      outline:none;
+      padding: 12px 14px;
+    }
 </style>
 </head>
 
@@ -212,12 +220,11 @@ mysqli_query($con,$sql);
 
 							while ($a = mysqli_fetch_array($sql)) {
 						?>
-						<table>
-							<tr  height="100px" width="300px" name="txtxemcmt">
+						
+						<input type="text" name="ocmt" id="ocmt" value="<?php echo $a["tenDocGia"].' : '.$a["noiDungCmt"].' || '.$a["ngayCmt"]; ?>"" readonly><br>
 								
-								<?php echo $a["tenDocGia"].' : '.$a["noiDungCmt"].' || '.$a["ngayCmt"]; ?>"
-							</tr>
-						</table>
+								
+							
 						
 						
 						<?php 

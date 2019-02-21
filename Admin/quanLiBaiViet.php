@@ -111,18 +111,23 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 			if(isset($_POST["search"])&&$_POST["search"]==0)
         	{
                 $tieuDe=$_POST["tieuDe"];
-                $ngay=$_POST["ngay"];
-                $query="SELECT tbladmin.tenAdmin, maTin, maTheLoai, tieuDe, moTa,noiDung,URLanh, ngay,tbltintuc.tinhTrang,soLuotXem FROM tbltintuc INNER JOIN tbladmin ON tbltintuc.maTaiKhoan=tbladmin.maTaiKhoan where tieuDe like '%$tieuDe%' and ngay >'$ngay'";
+                
+                $query="SELECT tbladmin.tenAdmin, maTin, maTheLoai, tieuDe, moTa,noiDung,URLanh, ngay,tbltintuc.tinhTrang,soLuotXem FROM tbltintuc INNER JOIN tbladmin ON tbltintuc.maTaiKhoan=tbladmin.maTaiKhoan where tieuDe like '%$tieuDe%' ";
                 // echo $query;
                 if($_POST["tinhTrang"]!=999)
                 {
                     $tinhTrang=$_POST["tinhTrang"];
-                    $query=$query." and tinhTrang=$tinhTrang";
+                    $query=$query." and tbltintuc.tinhTrang=$tinhTrang";
                 }
                 if($_POST["tenTheLoai"]!=999)
                 {
                     $maTheLoai=$_POST["tenTheLoai"];
                     $query=$query." and maTheLoai=$maTheLoai";
+                }
+                if($_POST['ngay'] != null)
+                {
+                	$ngay=$_POST["ngay"];
+                	$query=$query." and ngay='$ngay'";
                 }
             }
             

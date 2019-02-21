@@ -41,7 +41,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 	<table border="2px"; cellspacing="3" cellpadding="5" style="width: 100%">
 		<tr>
 			<th width="5%">Mã Cmt</th>
-			<th width="5%">Mã Tin</th>
+			<!-- <th width="5%">Mã Tin</th> -->
 			<th width="15%">Tên Độc Giả</th>
 			<th width="25%">Nội Dung Cmt</th>
 			<th width="15%">Ngày Cmt</th>
@@ -54,7 +54,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 			?>
 		<tr>
 			<td><?php echo ($CMT["maCmt"]); ?></td>
-			<td><?php echo ($CMT["maTin"]); ?></td>
+			<!-- <td><?php echo ($CMT["maTin"]); ?></td> -->
 			<td><?php echo ($CMT["tenDocGia"]); ?></td>
 			<td><?php echo ($CMT["noiDungCmt"]); ?></td>
 			<td><?php echo ($CMT["ngayCmt"]); ?></td>
@@ -77,12 +77,12 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 	<form method="POST">
 		<table cellspacing="0" cellpadding="10px">
 			<tr>
-				<td width="10px">
+				<!-- <td width="10px">
 					<strong>
 						Mã Tin:
 					</strong>
 					<input type="text" name="maTin" style="width: 100px" value="<?php if(isset($_POST['maTin'])) echo $_POST['maTin']; ?>">
-				</td>
+				</td> -->
 				<td width="10px">
 					<strong>
 						Người Comment:
@@ -123,10 +123,10 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 	<?php 
 	include("../connectDb/open.php");
 	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia order by maCmt";
-	if(!empty($_POST['maTin'])){
-		$maTin=$_POST['maTin'];
-		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where maTin=$maTin order by maCmt";
-	}
+	// if(!empty($_POST['maTin'])){
+	// 	$maTin=$_POST['maTin'];
+	// 	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where maTin=$maTin order by maCmt";
+	// }
 	if(!empty($_POST['tenDocGia'])){
 		$tenDocGia=$_POST['tenDocGia'];
 		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tenDocGia like '%$tenDocGia%' order by maCmt";
@@ -154,7 +154,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 	<table border="2px"; cellspacing="3" cellpadding="5" style="width: 100%">
 		<tr>
 			<th width="5%">Mã Cmt</th>
-			<th width="5%">Mã Tin</th>
+			<!-- <th width="5%">Mã Tin</th> -->
 			<th width="15%">Tên Độc Giả</th>
 			<th width="25%">Nội Dung Cmt</th>
 			<th width="15%">Ngày Cmt</th>
@@ -167,7 +167,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 			?>
 		<tr>
 			<td><?php echo ($CMT["maCmt"]); ?></td>
-			<td><?php echo ($CMT["maTin"]); ?></td>
+			<!-- <td><?php echo ($CMT["maTin"]); ?></td> -->
 			<td><?php echo ($CMT["tenDocGia"]); ?></td>
 			<td><?php echo ($CMT["noiDungCmt"]); ?></td>
 			<td><?php echo ($CMT["ngayCmt"]); ?></td>
