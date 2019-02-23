@@ -8,6 +8,7 @@
 		/*$pass = $_POST['tntPass'];*/
 		$ma=$_POST["ma"];
 			$conn = new mysqli("localhost", "root", "", "project");
+			mysqli_set_charset($conn,"utf8");
 			$sql  = "UPDATE tbldocgia SET diaChi = '$diachi' , email = '$email', tenDocGia='$hoten' WHERE maDocGia='$ma' ";
 			echo $sql;
 			$query = mysqli_query($conn,$sql);
