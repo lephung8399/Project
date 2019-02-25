@@ -42,8 +42,10 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 			}
 
 		#myBtn:hover {
-		  background-color: #555;
+		  background-color: #555;}
+		  
 	</style>
+</head>
 </head>
 <body>
 	<a href="#" style="text-decoration: none;  font-size: 27px; font-family: monospace;  letter-spacing: 10px"><strong>Quản lí Bài viết</strong></a>
@@ -180,7 +182,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 								
 						</td>
 						<td><img src="<?php echo ($tintuc["URLanh"]); ?>" style="width: 100%; height: auto"></td>
-						<td><?php echo ($tintuc["tieuDe"]); ?></td>
+						<td><strong><?php echo ($tintuc["tieuDe"]); ?></strong></td>
 						<td><?php echo ($tintuc["tenAdmin"]); ?></td>
 						<td><?php echo ($tintuc["ngay"]); ?></td>
 						<td>
@@ -218,6 +220,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 			</table>
 			<br>
 			<button class="btn info"><a href="themBaiViet.php" style="font-size: 20px; text-decoration: none; font-family: sans-serif; width: 80%; margin: auto;">Thêm Bài Viết</a></button>
+			
 			<?php
 			include("../connectDb/close.php");
 			?>

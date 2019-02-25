@@ -9,6 +9,7 @@ if(isset($_POST["txtMa"])&&isset($_POST["txtTieuDe"])&&isset($_POST["txtMoTa"])&
 	$ngay=$_POST["txtNgay"];
 	include("../connectDb/open.php");
 	mysqli_query($con,"UPDATE `tbltintuc` SET `tieuDe`='$tieude',`moTa`='$mota',`tomTat`='$tomtat',`noiDung`='$noidung',`ngay`='$ngay'  WHERE maTin=$maTin");
+	mysqli_set_charset($con,'utf8');
 	mysqli_close($con);
 	header("Location:home.php?dog=3");
 

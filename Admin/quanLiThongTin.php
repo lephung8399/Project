@@ -29,6 +29,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 		  cursor: pointer;
 		}
 	</style>
+	
 </head>
 <body>
 	<div id="qltt">
@@ -96,6 +97,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 						<?php 
 						include("../connectDb/close.php");
 						?>
+						
 			</div>
 </body>
 </html>

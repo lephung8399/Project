@@ -176,7 +176,12 @@
 	{
 	
 		$id=$_GET["id"];
-	?>
+		include("../../../connectDb/open.php");
+		$sql=("select * from tbldocgia where maDocGia=$id");
+		$result=mysqli_query($con,$sql);
+		while($infor=mysqli_fetch_array($result))
+		{
+		?>
 <form method="POST" action="xuli.php" >
 	<center>
 		<h3>Chỉnh Thông Tin Cá Nhân</h3>
@@ -186,7 +191,7 @@
 					Họ Tên:
 				</td> 
 				<td>
-					<input type="text"  name="tntHoTen" id="txtHo"><br>
+					<input type="text"  name="tntHoTen" id="txtHo" value="<?php echo($infor["tenDocGia"]);?>"><br>
 				</td>
 			</tr>
 			<tr>
@@ -194,7 +199,7 @@
 					Email:
 				</td>
 				<td>
-				 	<input type="email" name="tntEmail" id="txtEmail"><br>
+				 	<input type="email" name="tntEmail" id="txtEmail" value="<?php echo($infor["email"]);?>"><br>
 				</td>
 			</tr>
 			<tr>
@@ -202,7 +207,7 @@
 					Địa Chỉ:
 				</td>
 				<td>
-					<input type="text" name="tntDiaChi" id="textDiaChi"><br>
+					<input type="text" name="tntDiaChi" id="textDiaChi" value="<?php echo($infor["diaChi"]);?>"><br>
 				</td>
 			</tr>
 			<tr>
@@ -219,6 +224,8 @@
 </form>
 	<?php
 	}
+}
+include("../../../connectDb/close.php");
 	?>
 </body>
 </html>
