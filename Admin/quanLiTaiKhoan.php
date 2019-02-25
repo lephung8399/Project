@@ -149,7 +149,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 					<td>
 						<input type="submit" onclick="return confirm('Bạn có chắc muốn Thay đổi?')" value="Chỉnh Sửa">
 						
-						<button><a href="xoaTaiKhoan.php?id=<?php echo($taikhoan["maDocGia"]);?>" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a></button>
+						<!-- <button><a href="xoaTaiKhoan.php?id=<?php echo($taikhoan["maDocGia"]);?>" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a></button> -->
 						<button><a href="activeTaiKhoanDocGia.php?maDocGia=<?php echo($taikhoan["maDocGia"]);?>">Hoạt động</a></button>
 						<button><a href="khoaTaiKhoanDocGia.php?maDocGia=<?php echo($taikhoan["maDocGia"]);?>">Khóa</a></button>
 					</td>
