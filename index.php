@@ -145,7 +145,7 @@ session_start();
 			</div>
 			<div id="mainMenu">
 				<div id="containerMenu" >
-					<?php $sql="select * from tbltheloai order by maTheLoai limit 4";
+					<?php $sql="select * from tbltheloai order by maTheLoai limit 5";
 						$result=mysqli_query($con,$sql);
 						 ?>
 					<ul id="menu" >
@@ -159,9 +159,9 @@ session_start();
 						<?php 
 							}
 						?>
-						<li>
+						<!-- <li>
 							<a href="#">Liên Hệ</a>
-						</li>
+						</li> -->
 					</ul>
 					
 				</div>
@@ -241,7 +241,7 @@ session_start();
 								while($tinTheLoai=mysqli_fetch_array($result))
 								{
 								?>
-									<div id="anh1" >
+									<div class="anh1" >
 										<table width="100%">
 											<tr style=""><img src="<?php echo substr(($tinTheLoai["URLanh"]),3)?>" height="300" width="300">
 											</tr>
@@ -276,7 +276,7 @@ session_start();
 								while($tinTheLoai=mysqli_fetch_array($result))
 								{
 								?>
-									<div id="anh1" style="">
+									<div class="anh1" style="">
 										<table width="100%">
 											<tr style=""><img src="<?php echo substr(($tinTheLoai["URLanh"]),3)?>" height="300" width="300">
 											</tr>
@@ -313,7 +313,7 @@ session_start();
 								while($tinTheLoai=mysqli_fetch_array($result))
 								{
 								?>
-									<div id="anh1" style="">
+									<div class="anh1" style="">
 										<table width="100%">
 											<tr style=""><img src="<?php echo substr(($tinTheLoai["URLanh"]),3)?>" height="300" width="300">
 											</tr>
@@ -350,7 +350,7 @@ session_start();
 								while($tinTheLoai=mysqli_fetch_array($result))
 								{
 								?>
-									<div id="anh1" style="">
+									<div class="anh1" style="">
 										<table width="100%">
 											<tr style=""><img src="<?php echo substr(($tinTheLoai["URLanh"]),3)?>" height="300" width="300">
 											</tr>
@@ -370,7 +370,43 @@ session_start();
 
 					</div>
 				</div>
-					
+				<p>
+				<div id="kinhdoanh">
+					<div>
+						<div class="tittleMain">
+							<div class="chamcham"></div>
+							<div class="tieuDe" style="position: relative; ">
+								<h2 style="position: absolute;text-align: center; letter-spacing: 7px; text-transform: uppercase; font-family: sans-serif;">Kinh Doanh</h2></div>
+							<div class="chamcham"></div>
+						</div>
+					</div>
+					<div id="tinTheLoai5">
+						<?php 
+								include("connectDb/open.php");
+								$result=mysqli_query($con,"select * from tbltintuc where maTheLoai=5 and tinhTrang=1 ORDER BY maTin DESC LIMIT 3");
+								while($tinTheLoai=mysqli_fetch_array($result))
+								{
+								?>
+									<div class="anh1" style="">
+										<table width="100%">
+											<tr style=""><img src="<?php echo substr(($tinTheLoai["URLanh"]),3)?>" height="300" width="300">
+											</tr>
+											<br>
+											<tr>
+											<a href="index/chiTietTinTuc.php?maTin=<?php echo($tinTheLoai["maTin"]);?>" style="font-weight:bold;font-size:18px;text-decoration:none"><?php echo($tinTheLoai["tieuDe"]);?></a>
+											</tr>
+											<p>
+											<tr>
+											<a><?php echo($tinTheLoai["moTa"]);?></a>
+											</tr>
+										</table>
+									</div>
+								<?php
+							}
+							?>
+
+					</div>
+				</div>
 			</div>
 				
 

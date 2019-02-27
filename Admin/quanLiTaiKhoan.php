@@ -107,8 +107,8 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 				?>
 			<form action="suaTaiKhoan.php">
 				<tr>
-					<td style="width:10px">
-						<?php echo($taikhoan["maDocGia"]);?> 
+					<td style="width:5px">
+						<input type="text" name="txtMa" readonly="readonly" value="<?php echo($taikhoan["maDocGia"]);?> " style="width: 120px">
 					</td>
 					<td>
 						<input type="text" name="txtUser" value="<?php echo($taikhoan["User"]);?>" style="width: 120px">

@@ -182,7 +182,10 @@ session_start();
 			{
 				
 			?>
-
+			<br>
+			<h4 style="color: red">Lưu ý: Hãy tải ảnh đại diện tin lên trước khi nhập các kí tự.<br>
+				(Không sử dụng các kí tự đặc biệt.)
+				</h4>
 				<form action="upload.php" method="POST" enctype="multipart/form-data">
 				Ảnh đại diện tin:<img src="" width="200px">
 			    <input type="file" name="fileToUpload" id="fileToUpload">
@@ -191,12 +194,12 @@ session_start();
 				<form action="themBaiVietProcess.php" id="frm" method="POST">
 					<table>
 						<tr>
-						<th>Tiêu đề:</td>
-						<td>
-							<input type="text" name="txtTieuDe" id="txtTieuDe">
-						</td>
-						<td><span id="errTieuDe" class="err"></span></td>
-					</tr>
+							<td>Tiêu đề:</td>
+							<td>
+								<input type="text" name="txtTieuDe" id="txtTieuDe">
+							</td>
+							<td><span id="errTieuDe" class="err"></span></td>
+						</tr>
 					<tr>
 						<td>Mô tả</td>
 						<td>

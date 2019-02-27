@@ -150,7 +150,7 @@
 		</div>
 			<div id="mainMenu">
 				<div id="containerMenu" >
-					<?php $sql="select * from tbltheloai order by maTheLoai limit 4";
+					<?php $sql="select * from tbltheloai order by maTheLoai limit 5";
 						$result=mysqli_query($conn,$sql);
 						 ?>
 					<ul id="menu" >
@@ -164,9 +164,9 @@
 						<?php 
 							}
 						?>
-						<li>
+					<!-- 	<li>
 							<a href="#">Liên Hệ</a>
-						</li>
+						</li> -->
 					</ul>
 					
 				</div>

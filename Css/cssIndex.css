@@ -221,7 +221,7 @@
 				margin: auto;
 				position: relative;
 			}
-			#anh1{
+			.anh1{
 				width: 32%;
 				height: 366px;
 				background-color: transparent;
@@ -267,4 +267,17 @@
 				height: 500px;
 				margin: auto;
 				background-color: 
+			}
+			#kinhdoanh{
+				width: 100%;
+				height: 500px;
+				margin: auto;
+				background-color: 
+			}
+			#tinTheLoai5{
+				width: 100%;
+				height: 500px;
+				background-color: ;
+				margin: auto;
+				position: relative;
 			}

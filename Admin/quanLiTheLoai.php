@@ -27,6 +27,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 		}
 	}
 	</script>
+	
 </head>
 <body>
 
@@ -71,13 +72,13 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 				<form action="suaTheLoai.php">
 					<tr>
 						<td>
-							<input type="text" name="txtMa" style="width: 20%" value="<?php echo($theloai["maTheLoai"]);?>" readonly="readonly" >
+							<input type="text" name="txtMa" readonly="readonly" value="<?php echo($theloai["maTheLoai"]);?>" >
 						</td>
 						<td>
 							<input type="text" name="txtTen" value="<?php echo($theloai["tenTheLoai"]);?>" >
 						</td>
-						<td>
-							<input type="submit" onclick="return confirm('Bạn có chắc muốn Thay đổi?')" value="Chỉnh Sửa">
+						<td >
+							<input type="submit" onclick="return confirm('Bạn có chắc muốn Thay đổi?')" value="Chỉnh Sửa" >
 							
 							<!-- <button>
 								<a href="xoaTheLoai.php?id=<?php echo($theloai["maTheLoai"]);?>" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a>

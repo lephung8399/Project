@@ -89,12 +89,12 @@ if(($_SESSION['maQuyen']) < 3) header("location: index.php");
 	?>
 		<table border="2px"; cellspacing="3" cellpadding="0" style="width: 100%">
 			<tr>
-				<th style="width: max-width">Mã TK</th>
-				<th style="width: max-width">Tên</th>
-				<th style="width: max-width">Tên Tài Khoản</th>
-				<th style="width:max-width">Mật Khẩu</th>
-				<th style="width: 15%">Email</th>
-				<th style="width: 25%">Quyền Hạn</th>
+				<th style="width:2%">Mã TK</th>
+				<th style="width: 5%">Tên</th>
+				<th style="width:5% ">Tên Tài Khoản</th>
+				<th style="width: 5%">Mật Khẩu</th>
+				<th style="width: 10%">Email</th>
+				<th style="width: 40%">Quyền Hạn</th>
 				<th style="width: 10%">Tình Trạng</th>
 				<th style="width: 25%">Chức năng</th>
 			</tr>
@@ -104,7 +104,7 @@ if(($_SESSION['maQuyen']) < 3) header("location: index.php");
 			<form action="suaTaiKhoanAdmin.php">
 				<tr>
 					<td>
-						<input type="text" name="txtMa" style="width: 20%" value="<?php echo($QLadmin["maTaiKhoan"]);?>" readonly="readonly" >
+						<input type="text" name="txtMa" readonly="readonly" value="<?php echo($QLadmin["maTaiKhoan"]);?>" >
 						</td>
 					<td>
 						<input type="text" name="txtTen" value="<?php echo($QLadmin["tenAdmin"]);?>" >
@@ -127,10 +127,14 @@ if(($_SESSION['maQuyen']) < 3) header("location: index.php");
 						<!-- CHỨC NĂNG CỦA SUPERADMIN(CÓ THỂ THAY ĐỔI QUYỀN HẠN)<input type="text" name="txtMaQuyen" value="<?php echo($QLadmin["maQuyen"]);?>" > -->
 					</td>
 					<td>
-						<?php
-							if($QLadmin["tinhTrang"] == 1){echo "Hoạt động";}
-							if($QLadmin["tinhTrang"] == 0){echo "Đã khóa";}
-						?> 
+						<h6 style="color: blue">
+							<?php
+							if($QLadmin["tinhTrang"] == 1){echo "Hoạt động";}?>
+						</h6>
+						<h6 style="color: red">
+							<?php if($QLadmin["tinhTrang"] == 0){echo "Đã khóa";}
+							?> 
+						</h6>
 
 					</td>
 					<td>
@@ -152,16 +156,16 @@ if(($_SESSION['maQuyen']) < 3) header("location: index.php");
 					<td>
 						
 					<td>
-						<input type="text" name="txtTen" value="<?php echo($QLadmin["tenAdmin"]);?>" >
+						<input type="text" placeholder="Nhập tên..." name="txtTen" value="<?php echo($QLadmin["tenAdmin"]);?>">
 					</td>
 					<td>
-						<input type="text" name="txtUser" value="<?php echo($QLadmin["tenTaiKhoan"]);?>" >
+						<input type="text" placeholder="Nhập tên tài khoản..." name="txtUser" value="<?php echo($QLadmin["tenTaiKhoan"]);?>" >
 					</td>
 					<td>
-						<input type="password" name="txtPass" value="<?php echo($QLadmin["password"]);?>" >
+						<input type="password" placeholder="Nhập mật khẩu..." name="txtPass" value="<?php echo($QLadmin["password"]);?>" >
 					</td>
 					<td>
-						<input type="text" name="txtEmail" value="<?php echo($QLadmin["email"]);?>" style="width: 100%" >
+						<input type="text" placeholder="Nhập email..." name="txtEmail" value="<?php echo($QLadmin["email"]);?>" style="width: 100%" >
 					</td>
 					<td>
 						<input type="radio" name="Quyen" value="1" checked="checked">BTV

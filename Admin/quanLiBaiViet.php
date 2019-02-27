@@ -43,13 +43,16 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 
 		#myBtn:hover {
 		  background-color: #555;}
+		
 		  
 	</style>
+		}
 </head>
 </head>
 <body>
 	<a href="#" style="text-decoration: none;  font-size: 27px; font-family: monospace;  letter-spacing: 10px"><strong>Quản lí Bài viết</strong></a>
 			<br>
+			<!-- form loc tim kiem -->
 			<form method="POST">
 				<table cellpadding="20px" cellspacing="0">
 					<tr>
@@ -134,29 +137,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
             }
             
 
-   //      }
-			// $sql=("SELECT maTin, tbltheloai.maTheLoai, `tieuDe`, `ngay`,URLanh,tinhTrang  FROM  tbltintuc INNER JOIN tbltheloai on tbltheloai.maTheLoai = tbltintuc.maTheLoai order by maTin DESC");
-			
-			// if(!empty($_POST['tenTheLoai'])){
-			// 	if($_POST['tenTheLoai'] != 999){
-			// 		$maTL=$_POST['tenTheLoai'];
-			// 		$sql="select * from (SELECT maTin, tbltheloai.maTheLoai, `tieuDe`, `ngay`,URLanh,tinhTrang  FROM  tbltintuc INNER JOIN tbltheloai on tbltheloai.maTheLoai = tbltintuc.maTheLoai)a where maTheLoai=$maTL order by maTheLoai";
-			// 	}
-			// }
-			// if(!empty($_POST['tieuDe'])){
-			// 	$tieuDe=$_POST['tieuDe'];
-			// 	$sql="SELECT maTin, tbltheloai.maTheLoai, `tieuDe`, `ngay`,URLanh,tinhTrang  FROM  tbltintuc INNER JOIN tbltheloai on tbltheloai.maTheLoai = tbltintuc.maTheLoai where tieuDe like '%$tieuDe%' order by maTheLoai";
-			// }
-			// if(!empty($_POST['ngay'])){
-			// 	$ngay=$_POST['ngay'];
-			// 	$sql="SELECT maTin, tbltheloai.maTheLoai, `tieuDe`, `ngay`,URLanh,tinhTrang  FROM  tbltintuc INNER JOIN tbltheloai on tbltheloai.maTheLoai = tbltintuc.maTheLoai where ngay='$ngay' order by maTheLoai";
-			// }
-			// if(isset($_POST['tinhTrang'])){
-			// 	if($_POST['tinhTrang'] != 999){
-			// 		$tinhTrang=$_POST['tinhTrang'];
-			// 		$sql="select * from (SELECT maTin, tbltheloai.maTheLoai, `tieuDe`, `ngay`,URLanh,tinhTrang  FROM  tbltintuc INNER JOIN tbltheloai on tbltheloai.maTheLoai = tbltintuc.maTheLoai)a where tinhTrang=$tinhTrang order by maTheLoai";
-			// 	}
-			// }
+ 
 			
 
 			$result= mysqli_query($con,$query);
@@ -177,44 +158,66 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 				while($tintuc=mysqli_fetch_array($result)){
 					?>
 					<tr>
-						<td><?php echo ($tintuc["maTin"]); ?></td>
 						<td>
-							<?php  if($tintuc["maTheLoai"]==1){echo "Công Nghệ";}
+							<?php echo ($tintuc["maTin"]); ?>
+						</td>
+						<td style="color: #EA106C">
+							<STRONG>
+								<?php  if($tintuc["maTheLoai"]==1){echo "Công Nghệ";}
 								if($tintuc["maTheLoai"]==2){echo "Thế Giới";}
 								if($tintuc["maTheLoai"]==3){echo "Thể Thao";}
 								if($tintuc["maTheLoai"]==4){echo "Phong Cách";}
-							 ?>
+							 	?>
+							 	
+							 </STRONG>
 								
 						</td>
-						<td><img src="<?php echo ($tintuc["URLanh"]); ?>" style="width: 100%; height: auto"></td>
-						<td><strong><?php echo ($tintuc["tieuDe"]); ?></strong></td>
-						<td><?php echo ($tintuc["tenAdmin"]); ?></td>
-						<td><?php echo ($tintuc["ngay"]); ?></td>
 						<td>
-							<?php if($tintuc["tinhTrang"]==0){echo "Chưa Duyệt";}
-									if($tintuc["tinhTrang"]==1){echo "Đã Duyệt";} ?>
-										
+							<img src="<?php echo ($tintuc["URLanh"]); ?>" style="width: 100%; height: auto">
+						</td>
+						<td>
+							<strong>
+								<?php echo ($tintuc["tieuDe"]); ?>
+							</strong>
+						</td>
+						<td style="color: #EA106C">
+							<?php echo ($tintuc["tenAdmin"]); ?>
+						</td>
+						<td>
+							<?php echo ($tintuc["ngay"]); ?>
+						</td>
+						<td>
+							<h5 style="color: red">
+								<?php 
+									if($tintuc["tinhTrang"]==0){echo "Chưa Duyệt";}
+								?>
+							</h5>
+							<h5 style="color: blue">
+								<?php
+									if($tintuc["tinhTrang"]==1){echo "Đã Duyệt";} 
+								?>
+							</h5>		
 						</td>
 						<td>
 							<?php 
 							if($tintuc["tinhTrang"]==0 && $_SESSION['maQuyen'] == 1){ ?>
-							<button><a href="suaBaiViet.php?id=<?php echo($tintuc["maTin"]);?>">Chỉnh Sửa</a></button>
+							<button ><a href="suaBaiViet.php?id=<?php echo($tintuc["maTin"]);?>">Chỉnh Sửa</a></button>
 							<?php }else if($_SESSION["maQuyen"]>1){?>
 							 <button><a href="suaBaiViet.php?id=<?php echo($tintuc["maTin"]);?>">Chỉnh Sửa</a></button>
 							<?php }?>
 							<?php
 				 				if(($_SESSION['maQuyen']) >1){?>
-							<button><a href="xoaBaiViet.php?id=<?php echo($tintuc["maTin"]);?>" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a></button>
+							<button ><a href="xoaBaiViet.php?id=<?php echo($tintuc["maTin"]);?>" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a></button>
 							<?php }?>
 							<?php
 				 				if(($_SESSION['maQuyen']) >1){?>
-							<button><a href="hienTinTuc.php?maTin=<?php echo($tintuc["maTin"])?>">Duyệt</a></button>
+							<button ><a href="hienTinTuc.php?maTin=<?php echo($tintuc["maTin"])?>">Duyệt</a></button>
 							<?php }?>
 							<?php
 				 				if(($_SESSION['maQuyen']) >1){?>
-							<button><a href="anTinTuc.php?maTin=<?php echo($tintuc["maTin"])?>">Không duyệt</a></button>
+							<button id="button"><a href="anTinTuc.php?maTin=<?php echo($tintuc["maTin"])?>">Không duyệt</a></button>
 							<?php }?>
-							<button>
+							<button >
 								<a href="../index/chiTietTinTuc.php?maTin=<?php echo($tintuc["maTin"])?>">Xem Tin</a>
 							</button>
 						</td>
@@ -224,7 +227,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 				?>
 			</table>
 			<br>
-			<button class="btn info"><a href="themBaiViet.php" style="font-size: 20px; text-decoration: none; font-family: sans-serif; width: 80%; margin: auto;">Thêm Bài Viết</a></button>
+			<button class="btn info"><a href="themBaiViet.php" style="font-size: 20px; text-decoration: none; font-family: sans-serif; width: 80%; margin: auto;" id="button">Thêm Bài Viết</a></button>
 			
 			<?php
 			include("../connectDb/close.php");
