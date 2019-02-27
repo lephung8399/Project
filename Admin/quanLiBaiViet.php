@@ -74,6 +74,8 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 							Thể Thao</option>
 							<option value="4" <?php if(isset($_POST['tenTheLoai'])) if($_POST['tenTheLoai']== 4) echo "selected" ?>>
 							Phong Cách</option>
+							<option value="5" <?php if(isset($_POST['tenTheLoai'])) if($_POST['tenTheLoai']== 5) echo "selected" ?>>
+							Kinh Doanh</option>
 						</select>
 						</td>
 						<td  width="270px">
@@ -163,10 +165,12 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 						</td>
 						<td style="color: #EA106C">
 							<STRONG>
-								<?php  if($tintuc["maTheLoai"]==1){echo "Công Nghệ";}
+								<?php  
+								if($tintuc["maTheLoai"]==1){echo "Công Nghệ";}
 								if($tintuc["maTheLoai"]==2){echo "Thế Giới";}
 								if($tintuc["maTheLoai"]==3){echo "Thể Thao";}
 								if($tintuc["maTheLoai"]==4){echo "Phong Cách";}
+								if($tintuc["maTheLoai"]==5){echo "Kinh Doanh";}
 							 	?>
 							 	
 							 </STRONG>
