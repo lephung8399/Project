@@ -89,14 +89,14 @@ if(($_SESSION['maQuyen']) < 3) header("location: index.php");
 	?>
 		<table border="2px"; cellspacing="3" cellpadding="0" style="width: 100%">
 			<tr>
-				<th style="width:2%">Mã TK</th>
+				<th>Mã TK</th>
 				<th style="width: 5%">Tên</th>
-				<th style="width:5% ">Tên Tài Khoản</th>
-				<th style="width: 5%">Mật Khẩu</th>
+				<th style="width: 10%">Tên Tài Khoản</th>
+				<th style="width: 10%">Mật Khẩu</th>
 				<th style="width: 10%">Email</th>
-				<th style="width: 40%">Quyền Hạn</th>
-				<th style="width: 10%">Tình Trạng</th>
-				<th style="width: 25%">Chức năng</th>
+				<th style="width:25%">Quyền Hạn</th>
+				<th style="width: 10%" >Tình Trạng</th>
+				<th style="width: 30%">Chức năng</th>
 			</tr>
 			<?php
 			while($QLadmin=mysqli_fetch_array($result)){
@@ -104,30 +104,32 @@ if(($_SESSION['maQuyen']) < 3) header("location: index.php");
 			<form action="suaTaiKhoanAdmin.php">
 				<tr>
 					<td>
-						<input type="text" name="txtMa" readonly="readonly" value="<?php echo($QLadmin["maTaiKhoan"]);?>" >
+						<input type="text" style="width: 10px" name="txtMa" readonly="readonly" value="<?php echo($QLadmin["maTaiKhoan"]);?>" >
 						</td>
-					<td>
-						<input type="text" name="txtTen" value="<?php echo($QLadmin["tenAdmin"]);?>" >
+					<td style="width: 150px">
+						<input type="text" style="width: 150px" name="txtTen" value="<?php echo($QLadmin["tenAdmin"]);?>" >
+					</td>
+					<td >
+						<input type="text" style="width: 150px" name="txtUser" value="<?php echo($QLadmin["tenTaiKhoan"]);?>" >
 					</td>
 					<td>
-						<input type="text" name="txtUser" value="<?php echo($QLadmin["tenTaiKhoan"]);?>" >
+						<input type="password" style="width: 130px" name="txtPass" value="<?php echo($QLadmin["password"]);?>" >
 					</td>
 					<td>
-						<input type="password" name="txtPass" value="<?php echo($QLadmin["password"]);?>" >
+						<input type="text" style="width: 130px" name="txtEmail" value="<?php echo($QLadmin["email"]);?>" style="width: 100%">
 					</td>
 					<td>
-						<input type="text" name="txtEmail" value="<?php echo($QLadmin["email"]);?>" style="width: 100%">
-					</td>
-					<td>
+						<strong>
 						<?php
 							if($QLadmin["maQuyen"] == 1){echo "BTV";}
 							if($QLadmin["maQuyen"] == 2){echo "Admin";}
 							if($QLadmin["maQuyen"] == 3){echo "SuperAdmin";}
 						?>
 						<!-- CHỨC NĂNG CỦA SUPERADMIN(CÓ THỂ THAY ĐỔI QUYỀN HẠN)<input type="text" name="txtMaQuyen" value="<?php echo($QLadmin["maQuyen"]);?>" > -->
+						</strong>
 					</td>
 					<td>
-						<h6 style="color: blue">
+						<h6 style="color: green">
 							<?php
 							if($QLadmin["tinhTrang"] == 1){echo "Hoạt động";}?>
 						</h6>

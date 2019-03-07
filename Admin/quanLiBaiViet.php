@@ -114,12 +114,43 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 			</form>
 			<?php
 			include("../connectDb/open.php");
-			$query="SELECT tbladmin.tenAdmin, maTin, maTheLoai, tieuDe, moTa,noiDung,URLanh, ngay,tbltintuc.tinhTrang,soLuotXem FROM tbltintuc INNER JOIN tbladmin ON tbltintuc.maTaiKhoan=tbladmin.maTaiKhoan order by maTin desc";
+			$query="SELECT tbladmin.tenAdmin, maTin, maTheLoai, tieuDe, moTa,noiDung,URLanh, date_format(ngay,'%d/%m/%Y') as ngay,tbltintuc.tinhTrang,soLuotXem FROM tbltintuc INNER JOIN tbladmin ON tbltintuc.maTaiKhoan=tbladmin.maTaiKhoan order by maTin desc";
+			$demRow = 0;
+			$sp1dong = 3;
+			$sp1page = 6;
+			$left = -10;
+			$sqlSoSP = mysqli_query($con, "select * from tbltintuc");
+			$demPage = ceil(mysqli_num_rows($sqlSoSP)/$sp1page);
+			$query = "SELECT tbladmin.tenAdmin, maTin, maTheLoai, tieuDe, moTa,noiDung,URLanh, date_format(ngay,'%d/%m/%Y') as ngay,tbltintuc.tinhTrang,soLuotXem FROM tbltintuc INNER JOIN tbladmin ON tbltintuc.maTaiKhoan=tbladmin.maTaiKhoan order by maTin desc limit 0,$sp1page";
+			if(isset($_GET['page']))
+			{
+				$page = $_GET['page'];
+				if ($page > $demPage) {
+					?>
+					<script type="text/javascript">
+						window.location.href="../?page=<?php echo $demPage ?>"
+					</script>
+					<?php
+				}
+				else if ($page < 1) {
+					?>
+					<script type="text/javascript">
+						window.location.href="../?page=1"
+					</script>
+					<?php
+				}
+				else
+				{
+					$start = ($_GET['page']-1) * $sp1page;
+					if($_GET['page'] == 1) $start = 0;
+					$query = "SELECT tbladmin.tenAdmin, maTin, maTheLoai, tieuDe, moTa,noiDung,URLanh, date_format(ngay,'%d/%m/%Y') as ngay,tbltintuc.tinhTrang,soLuotXem FROM tbltintuc INNER JOIN tbladmin ON tbltintuc.maTaiKhoan=tbladmin.maTaiKhoan order by maTin desc limit $start,$sp1page";
+				}
+			}
 			if(isset($_POST["search"])&&$_POST["search"]==0)
         	{
                 $tieuDe=$_POST["tieuDe"];
                 
-                $query="SELECT tbladmin.tenAdmin, maTin, maTheLoai, tieuDe, moTa,noiDung,URLanh, ngay,tbltintuc.tinhTrang,soLuotXem FROM tbltintuc INNER JOIN tbladmin ON tbltintuc.maTaiKhoan=tbladmin.maTaiKhoan where tieuDe like '%$tieuDe%' ";
+                $query="SELECT tbladmin.tenAdmin, maTin, maTheLoai, tieuDe, moTa,noiDung,URLanh, date_format(ngay,'%d/%m/%Y') as ngay,tbltintuc.tinhTrang,soLuotXem FROM tbltintuc INNER JOIN tbladmin ON tbltintuc.maTaiKhoan=tbladmin.maTaiKhoan where tieuDe like '%$tieuDe%' ";
                 // echo $query;
                 if($_POST["tinhTrang"]!=999)
                 {
@@ -140,7 +171,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
             
 
  
-			
+			// echo $query;
 
 			$result= mysqli_query($con,$query);
 
@@ -196,7 +227,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 									if($tintuc["tinhTrang"]==0){echo "Chưa Duyệt";}
 								?>
 							</h5>
-							<h5 style="color: blue">
+							<h5 style="color: green">
 								<?php
 									if($tintuc["tinhTrang"]==1){echo "Đã Duyệt";} 
 								?>
@@ -233,6 +264,14 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 			<br>
 			<button class="btn info"><a href="themBaiViet.php" style="font-size: 20px; text-decoration: none; font-family: sans-serif; width: 80%; margin: auto;" id="button">Thêm Bài Viết</a></button>
 			
+			<?php 
+				for ($i=1; $i <= $demPage; $i++) { 
+					?>
+						<a href="./home.php?dog=3&page=<?php echo $i ?>"><?php echo $i ?></a>
+					<?php
+				}
+			?>
+
 			<?php
 			include("../connectDb/close.php");
 			?>

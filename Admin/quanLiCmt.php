@@ -33,7 +33,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 	<p>
 	<?php
 	include("../connectDb/open.php");
-	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tblcmt.tinhTrang =0 order by maCmt";
+	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tblcmt.tinhTrang =0 order by maCmt";
 	$result=mysqli_query($con,$sql);
 	?>
 	<!-- Những Comment Chưa Duyệt -->
@@ -122,30 +122,30 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 	</form>
 	<?php 
 	include("../connectDb/open.php");
-	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia order by maCmt";
+	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia order by maCmt";
 	// if(!empty($_POST['maTin'])){
 	// 	$maTin=$_POST['maTin'];
-	// 	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where maTin=$maTin order by maCmt";
+	// 	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where maTin=$maTin order by maCmt";
 	// }
 	if(!empty($_POST['tenDocGia'])){
 		$tenDocGia=$_POST['tenDocGia'];
-		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tenDocGia like '%$tenDocGia%' order by maCmt";
+		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tenDocGia like '%$tenDocGia%' order by maCmt";
 	
 	}
 	if(!empty($_POST['noiDungCmt'])){
 		$noiDungCmt=$_POST['noiDungCmt'];
-		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where noiDungCmt like '%$noiDungCmt%' order by maCmt";
+		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where noiDungCmt like '%$noiDungCmt%' order by maCmt";
 
 	}
 	if(!empty($_POST['ngayCmt'])){
 		$ngayCmt=$_POST['ngayCmt'];
-		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where ngayCmt='$ngayCmt' order by maCmt";
+		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where ngayCmt='$ngayCmt' order by maCmt";
 	
 	}
 	if(isset($_POST['tinhTrang'])){
 		if($_POST['tinhTrang'] != 999){
 		$tinhTrang=$_POST['tinhTrang'];
-		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tinhTrang=$tinhTrang  order by maCmt";
+		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tinhTrang=$tinhTrang  order by maCmt";
 		}
 
 	}
@@ -166,14 +166,31 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 		{
 			?>
 		<tr>
-			<td><?php echo ($CMT["maCmt"]); ?></td>
+			<td>
+				<?php echo ($CMT["maCmt"]); ?>
+			</td>
 			<!-- <td><?php echo ($CMT["maTin"]); ?></td> -->
-			<td><?php echo ($CMT["tenDocGia"]); ?></td>
-			<td><?php echo ($CMT["noiDungCmt"]); ?></td>
-			<td><?php echo ($CMT["ngayCmt"]); ?></td>
-			<td><?php if($CMT["tinhTrang"]==0){echo "Ẩn";} 
-					if($CMT["tinhTrang"]==1){echo "Hiện";}
-			?></td>
+			<td>
+				<?php echo ($CMT["tenDocGia"]); ?>
+			</td>
+			<td>
+				<?php echo ($CMT["noiDungCmt"]); ?>
+				</td>
+			<td>
+				<?php echo ($CMT["ngayCmt"]); ?>
+			</td>
+			<td>
+				<h6 style="color: red">
+					<?php 
+						if($CMT["tinhTrang"]==0){echo "Ẩn";}
+					?>
+				</h6>
+				<h6 style="color: green">
+					<?php 
+						if($CMT["tinhTrang"]==1){echo "Hiện";}
+					?>
+				</h6>
+			</td>
 			<td>
 				<button><a href="xoaCmt.php?id=<?php echo($CMT["maCmt"]);?>" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a></button>
 				<button>

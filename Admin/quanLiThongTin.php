@@ -78,10 +78,16 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 							<tr>
 								<td><b>Trạng Thái:</b></td>
 								<td style="color: red">
-									
-									<?php  if($infor["tinhTrang"] == 1){echo 'Hoạt động';}
-											if($infor["tinhTrang"] == 0){echo "Đã bị khóa (Vui lòng liên hệ với Admin)";}
-									?>
+									<h5 style="color: green">
+										<?php  
+											if($infor["tinhTrang"] == 1){echo '<img src="https://img.icons8.com/color/48/000000/ok.png">(Đang hoạt động)';}
+										?>
+									</h5>
+									<h5 style="color: red">
+										<?php
+											if($infor["tinhTrang"] == 0){echo '<img src="https://img.icons8.com/color/48/000000/shutdown.png">(Đã bị khóa)';}
+										?>
+									</h5>
 									
 								</td>
 							</tr>
