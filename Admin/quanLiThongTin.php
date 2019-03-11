@@ -5,7 +5,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Quản Lí Thông Tin</title>
 	<style type="text/css">
 		#qltt{width: 50%;
 			
