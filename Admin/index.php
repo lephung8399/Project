@@ -54,12 +54,41 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script type="text/javascript">
     function login()
     {
-      if(document.getElementById("txtUser").value.length != 0 && document.getElementById("txtPass").value.length != 0)
+     /* if(document.getElementById("txtUser").value.length != 0  && document.getElementById("txtPass").value.length != 0)
         document.getElementById("loginButton").type= 'submit';
       else if(document.getElementById("txtUser").value.length == 0 && document.getElementById("txtPass").value.length == 0) document.getElementById("errLogin").innerHTML = "Hãy điền tên đăng nhập và mật khấu"
       else if(document.getElementById("txtPass").value.length == 0) document.getElementById("errLogin").innerHTML = "Hãy điền mật khấu"
       else document.getElementById("errLogin").innerHTML = "Hãy điền tên đăng nhập";
+    }*/
+
+
+    var user=document.getElementById("txtUser").value;
+    var pass=document.getElementById("txtPass").value;
+    dem = 0;
+    //user
+    if(user.length==0)
+    {
+      document.getElementById("txtUser").style.border="2px solid red";
+    }else
+      {
+        document.getElementById("txtUser").style.border="2px solid  #7FFF00";
+        dem++;
+      }
+    //password
+    if(pass.length==0)
+    {
+      document.getElementById("txtPass").style.border="2px solid red";
+    }else
+      {
+        document.getElementById("txtPass").style.border="2px solid  #7FFF00";
+        dem++;
+      }
+
+    if(dem==2)
+    {
+      document.getElementById("loginButton").type = "submit";
     }
+  }
   </script>
 </head>
 <body>
@@ -71,12 +100,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <h2>Đăng Nhập</h2>
   <div class="input-container">
     <i class="fa fa-user icon"></i>
-    <input class="input-field" type="text" placeholder="Username" name="txtUser" id="txtUser">
+    <input class="input-field" type="text" placeholder="Username" name="txtUser" id="txtUser" onchange="login()">
   </div>
   
   <div class="input-container">
     <i class="fa fa-key icon"></i>
-    <input class="input-field" type="password" placeholder="Password" name="txtPass" id="txtPass">
+    <input class="input-field" type="password" placeholder="Password" name="txtPass" id="txtPass" onchange="login()">
   </div>
   <div align="center" >
         <span id="errLogin"></span>
@@ -92,7 +121,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 }
               ?>
 
-  <button type="submit" class="btn" onclick="login()" id="loginButton">Đăng nhập</button>
+  <button type="button" class="btn" onclick="login()" id="loginButton">Đăng nhập</button>
 </form>
 
 </body>
