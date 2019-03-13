@@ -27,7 +27,7 @@
 			width: 100%;
 			height: max-height;
 			
-			background-color: #EDF6D3
+			background-color: #FCFFF1
 		}
 		#login{float: left;
 			width: 15%;

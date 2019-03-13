@@ -58,12 +58,17 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 			<td><?php echo ($CMT["tenDocGia"]); ?></td>
 			<td><?php echo ($CMT["noiDungCmt"]); ?></td>
 			<td><?php echo ($CMT["ngayCmt"]); ?></td>
-			<td><?php if($CMT["tinhTrang"]==0){echo "Chưa Duyệt";} 
+			<td><?php 	
+					if($CMT["tinhTrang"]==0){echo "Chưa Duyệt";} 
 					if($CMT["tinhTrang"]==1){echo "Duyệt";}
-			?></td>
+				?>
+			</td>
 			<td>
 				<button><a href="xoaCmt.php?id=<?php echo($CMT["maCmt"]);?>" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a></button>
 				<button><a href="duyetCmt.php?maCmt=<?php echo($CMT["maCmt"]);?>" onclick="return confirm('Bạn có chắc muốn Duyệt?')">Duyệt</a></button>
+				<button>
+					<a href="../index/chiTietTinTuc.php?maTin=<?php echo($CMT["maTin"])?>">Xem Tin</a>
+				</button>
 			</td>
 		</tr>
 	<?php }
@@ -122,30 +127,30 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 	</form>
 	<?php 
 	include("../connectDb/open.php");
-	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia order by maCmt";
+	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia order by maCmt desc";
 	// if(!empty($_POST['maTin'])){
 	// 	$maTin=$_POST['maTin'];
 	// 	$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where maTin=$maTin order by maCmt";
 	// }
 	if(!empty($_POST['tenDocGia'])){
 		$tenDocGia=$_POST['tenDocGia'];
-		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tenDocGia like '%$tenDocGia%' order by maCmt";
+		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tenDocGia like '%$tenDocGia%' order by maCmt desc";
 	
 	}
 	if(!empty($_POST['noiDungCmt'])){
 		$noiDungCmt=$_POST['noiDungCmt'];
-		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where noiDungCmt like '%$noiDungCmt%' order by maCmt";
+		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where noiDungCmt like '%$noiDungCmt%' order by maCmt desc";
 
 	}
 	if(!empty($_POST['ngayCmt'])){
 		$ngayCmt=$_POST['ngayCmt'];
-		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where ngayCmt='$ngayCmt' order by maCmt";
+		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where ngayCmt='$ngayCmt' order by maCmt desc";
 	
 	}
 	if(isset($_POST['tinhTrang'])){
 		if($_POST['tinhTrang'] != 999){
 		$tinhTrang=$_POST['tinhTrang'];
-		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tinhTrang=$tinhTrang  order by maCmt";
+		$sql="SELECT maCmt,maTin, tbldocgia.tenDocGia, maCmt, noiDungCmt, date_format(ngayCmt,'%d/%m/%Y %h:%m:%s') as ngayCmt, tblcmt.tinhTrang  FROM  tblcmt INNER JOIN tbldocgia on tbldocgia.maDocGia = tblcmt.maDocGia where tinhTrang=$tinhTrang  order by maCmt desc";
 		}
 
 	}

@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();*/
 if(!isset($_SESSION['maQuyen']) || $_SESSION['maQuyen'] < 2 ) header("location: index.php");
 
 ?>

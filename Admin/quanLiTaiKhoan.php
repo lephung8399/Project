@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 // print_r($_SESSION);die();
 if(!isset($_SESSION['maQuyen']) || isset($_SESSION['maQuyen'])<2) header("location: index.php");
 
@@ -149,7 +149,7 @@ if(!isset($_SESSION['maQuyen']) || isset($_SESSION['maQuyen'])<2) header("locati
 						<input type="text" name="txtUser" value="<?php echo($taikhoan["User"]);?>" style="width: 120px">
 					</td>
 					<td>
-						<input type="password" name="txtPass" value="<?php echo($taikhoan["Pass"]);?>"  style="width: 100px">
+						<input type="password" name="txtPass" value="**********"  style="width: 100px">
 					</td>
 					<td>
 						<input type="text" name="txtTen" value="<?php echo($taikhoan["tenDocGia"]);?>" style="width: 120px">

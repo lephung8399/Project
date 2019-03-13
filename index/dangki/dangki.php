@@ -67,7 +67,7 @@ session_start();
 		//mat khau
 		if(pass.length==0)
 		{
-			errMatKhau.innerHTML="Yêu c?u nh?p!";	
+			errMatKhau.innerHTML="Yêu cầu nhập!";	
 			document.getElementById("txtMatKhau").style.border="2px solid red";
 		}else
 		{
@@ -79,18 +79,18 @@ session_start();
 				dem++;		
 			}else
 			{
-				errMatKhau.innerHTML="Sai d?nh d?ng!";	
+				errMatKhau.innerHTML="Sai định dạng!";	
 				document.getElementById("txtMatKhau").style.border="2px solid red";	
 			}
 		}
 		//nhap lai mat khau
 		if(passNhapLai.length==0)
 		{
-			errMatKhauNhapLai.innerHTML="Yêu c?u nh?p!";
+			errMatKhauNhapLai.innerHTML="Yêu cầu nhập!";
 			document.getElementById("txtNhapLaiMatKhau").style.border="2px solid red";	
 		}else if(passNhapLai!=pass)
 		{
-			errMatKhauNhapLai.innerHTML="Không kh?p!";
+			errMatKhauNhapLai.innerHTML="Không khầp!";
 		document.getElementById("txtNhapLaiMatKhau").style.border="2px solid red";	
 		}else
 		{
@@ -101,7 +101,7 @@ session_start();
 		//ho
 		if(ho.length==0)
 		{
-			errHo.innerHTML="Yêu c?u nh?p!";	
+			errHo.innerHTML="Yêu cầu nhập!";	
 			document.getElementById("txtHo").style.border="2px solid red";
 		}else
 		{
@@ -112,7 +112,7 @@ session_start();
 		//ten
 		if(ten.length==0)
 		{
-			errTen.innerHTML="Yêu c?u nh?p!";	
+			errTen.innerHTML="Yêu cầu nhập!";	
 			document.getElementById("txtTen").style.border="2px solid red";
 		}else
 		{
@@ -123,7 +123,7 @@ session_start();
 		//ngay sinh
 		if(ngay==-1||thang==-1||nam==-1)
 		{
-			errNgaySinh.innerHTML="Yêu c?u nh?p!";
+			errNgaySinh.innerHTML="Yêu cầu nhập!";
 			document.getElementById("ddlNgay").style.border="2px solid red";
 			document.getElementById("ddlThang").style.border="2px solid red";	
 			document.getElementById("ddlNam").style.border="2px solid red";		
@@ -138,7 +138,7 @@ session_start();
 		//email
 		if(email.length==0)
 		{
-			errEmail.innerHTML="Yêu c?u nh?p!";
+			errEmail.innerHTML="Yêu cầu nhập!";
 			document.getElementById("txtEmail").style.border="2px solid red";	
 		}else
 		{
@@ -150,7 +150,7 @@ session_start();
 				dem++;		
 			}else
 			{
-				errEmail.innerHTML="Sai d?nh d?ng!";
+				errEmail.innerHTML="Sai định dạng!";
 				document.getElementById("txtEmail").style.border="2px solid red";	
 			}
 		}
@@ -176,7 +176,7 @@ session_start();
 		//dia chi
 		if(diaChi.length==0)
 		{
-			errDiaChi.innerHTML="Yêu c?u nh?p";	
+			errDiaChi.innerHTML="Yêu cầu nhập";	
 			document.getElementById("textDiaChi").style.border="2px solid red";
 		}else
 		{
@@ -187,7 +187,7 @@ session_start();
 		//so dien thoai
 		if(dienThoai.length==0)
 		{
-			errDienThoai.innerHTML="Yêu c?u nh?p!";	
+			errDienThoai.innerHTML="Yêu cầu nhập!";	
 			document.getElementById("txtDienThoai").style.border="2px solid red";
 		}else
 		{
@@ -199,7 +199,7 @@ session_start();
 				dem++;	
 			}else
 			{
-				errDienThoai.innerHTML="Sai d?nh d?ng!";
+				errDienThoai.innerHTML="Sai định dạng!";
 				document.getElementById("txtDienThoai").style.border="2px solid red";	
 			}
 		}
@@ -238,7 +238,7 @@ session_start();
 			if ($_GET['err'] == '1') {
 				?>
 				<script>
-					alert("Ðang ký th?t b?i: trùng tên dang nh?p!");
+					alert("Ðăng ký thất bại: trùng tên đang nhập!");
 				</script>
 				<?php
 			}
