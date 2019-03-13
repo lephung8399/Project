@@ -54,6 +54,20 @@ mysqli_query($con,$sql);
       padding: 12px 14px;
     }
 </style>
+<script>
+	function validate1()
+	{
+		var txtLength = document.getElementById('txt').value.length;
+		if(txtLength == 0)
+		{
+			alert('Bình luận trống!');
+		}
+		else
+		{
+			document.getElementById('btnSUBMIT').type = 'submit';
+		}
+	}
+</script>
 </head>
 
 <body>
@@ -68,7 +82,7 @@ mysqli_query($con,$sql);
 					
 				</div>
 			</div>
-			<div id="logo"></div>
+			<a href="index.php"><div id="logo"></div></a>
 			<div id="SearchLogin">
 				<div id="khongdelamgi"></div>
 				<div id="timKiem" style="margin: auto;  display: flex; align-items: center;">
@@ -136,9 +150,6 @@ mysqli_query($con,$sql);
 						<?php 
 							}
 						?>
-						<!-- <li>
-							<a href="#">Liên Hệ</a>
-						</li> -->
 					</ul>
 					
 				</div>
@@ -203,7 +214,7 @@ mysqli_query($con,$sql);
 							<span id="err"></span>
 							<input type="text" name="maTin" value="<?php echo $maTin;?>" style="display: none;" readonly>
 							<br>
-							<input type="submit" id="btnSUBMIT"  value="Bình luận" onclick="validate()" style="width: 120px; height: 30px">
+							<input type="button" id="btnSUBMIT"  value="Bình luận" onclick="validate1()" style="width: 120px; height: 30px">
 							<?php } ?>
 						</form><br>
 						<!-- Hiển Thị Comment			  -->

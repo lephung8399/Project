@@ -39,28 +39,27 @@ session_start();
 			{
 				alert("Yêu cầu nhập để tìm kiếm!")
 				document.getElementById("txtsearch").style.border="2px solid red";
+				return;
 			}
 			else
 			{
 				var kqsearch=regsearch.test(search);
 				if(kqsearch==true || true)
 				{
-					
 					document.getElementById("txtsearch").style.border="2px solid 	#7FFF00";
 					dem++;		
 				}
 			}
 			if(dem == 1)
-			{
-				return true;	
-				
+			{	
+				document.getElementById('searchForm').action = 'index/searchprocess.php';
+				return true;		
 			}
 			else
 			{
 				return false;
 			}
 		}
-
 		</script>
 		<link rel="stylesheet" type="text/css" href="Css/cssIndex.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -95,8 +94,8 @@ session_start();
 				<div id="SearchLogin">
 					<div id="khongdelamgi"></div>
 					<div id="timKiem" style="margin: auto;  display: flex; align-items: center;">
-						<form style="padding-top: 40px margin-right: 5px; display: inline-block;"  action="index/searchprocess.php" method="get">
-							<input type="search" id="txtsearch" name="Search" placeholder=" Tìm Kiếm... " >
+						<form style="padding-top: 40px margin-right: 5px; display: inline-block;" id="searchForm"  method="get" onsubmit="validate()">
+							<input type="text" id="txtsearch" name="Search" placeholder=" Tìm Kiếm... ">
 							<!-- <input type="submit" id="submitbtn" value="Tìm kiếm" onclick="return validate()"><i class="fas fa-search"></i> -->
 							<!-- <img  src="https://img.icons8.com/material/30/000000/search.png" > -->
 						</form>
