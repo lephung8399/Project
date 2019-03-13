@@ -75,7 +75,38 @@
 			if(isset($_GET["dog"]))
 			{
 				$dog=$_GET["dog"];
-				switch ($dog) {
+				if($_SESSION['maQuyen']==3)
+				{
+					switch ($dog) {
+						
+							case 1:
+								include("quanLiThongTin.php");
+								break;
+							case 2:
+								include("quanLiTheLoai.php");
+								break;
+							case 3:
+								include("quanLiBaiViet.php");
+								break;
+							case 4:
+								include("quanLiCmt.php");
+								break;
+							case 5:
+								include("quanLiTaiKhoan.php");
+								break;
+							case 6:
+								include("quanLiAdmin.php");
+								break;
+
+							
+							default:
+								include("quanLiThongTin.php");
+								break;
+						}
+				}
+				else if($_SESSION['maQuyen']==2)
+				{
+					switch ($dog) {
 					case 1:
 						include("quanLiThongTin.php");
 						break;
@@ -83,26 +114,47 @@
 						include("quanLiTheLoai.php");
 						break;
 					case 3:
-					include("quanLiBaiViet.php");
-					break;
-					case 4:
-					include("quanLiCmt.php");
-					break;
-					case 5:
-					include("quanLiTaiKhoan.php");
-					break;
-					case 6:
-					include("quanLiAdmin.php");
-					break;
-
-					
-					default:
-						include("trangchu.php");
+						include("quanLiBaiViet.php");
 						break;
+					case 4:
+						include("quanLiCmt.php");
+						break;
+					case 5:
+						include("quanLiTaiKhoan.php");
+						break;
+					default:
+						include("quanLiThongTin.php");
+						break;
+					}
+
 				}
+				else if($_SESSION['maQuyen']==1)
+				{
+					switch ($dog) {
+
+						case 1:
+							include("quanLiThongTin.php");
+							break;
+						case 3:
+							include("quanLiBaiViet.php");
+							break;
+						default:
+							include("quanLiThongTin.php");
+							break;
+					}
+				}
+				else
+				{
+					switch ($dog) {
+						default:
+							include("quanLiThongTin.php");
+							break;
+					}
+				}
+				
 			}else
 			{
-				include("trangchu.php");
+				include("quanLiThongTin.php");
 			}
 			?>
 		</div>

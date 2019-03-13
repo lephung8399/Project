@@ -1,6 +1,7 @@
 <?php
-if(!isset($_SESSION['maQuyen'])) header("location: index.php");
-if(($_SESSION['maQuyen']) < 3) header("location: index.php");
+session_start();
+if(!isset($_SESSION['maQuyen']) || $_SESSION['maQuyen'] < 2 ) header("location: index.php");
+
 ?>
 
 <!DOCTYPE html>

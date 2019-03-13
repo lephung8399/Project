@@ -1,5 +1,9 @@
 <?php
-if(!isset($_SESSION['maQuyen'])) header("location: index.php");
+
+session_start();
+// print_r($_SESSION);die();
+if(!isset($_SESSION['maQuyen']) || isset($_SESSION['maQuyen'])<2) header("location: index.php");
+
 ?>
 
 <!DOCTYPE html>
