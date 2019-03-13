@@ -37,7 +37,7 @@
 	</SCRIPT>
 </head>
 <body>
-	<form  id="frm" action="" method="POST" >
+	<form  id="frm" action="cmtprocess.php" method="POST" >
 		<textarea  id="txt"  name="txtcmt"></textarea>
 		<span id="err"></span>
 		<input type="button" id="btnSUBMIT"  value="Bình luận" onclick="validate()" >

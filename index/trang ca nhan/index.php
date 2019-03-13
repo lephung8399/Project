@@ -31,7 +31,8 @@
 			padding-top: 24px;
 			text-align:center;
 			border-bottom: 1px solid #d6d6d6;
-			padding-bottom: 16px
+			padding-bottom: 16px;
+			font-size:30px;
 		}
 		table{
 			color: red;
@@ -83,6 +84,38 @@
 			background-color: #d0d0d0
 		}
 	</style>
+			<script>
+		function validate()
+		{
+			var search = document.getElementById("txtsearch").value;
+			var regsearch = /^[a-zA-Z0-9]+$/;
+			var dem=0;
+			if(search.length==0)
+			{
+				alert("Yêu cầu nhập để tìm kiếm!")
+				document.getElementById("txtsearch").style.border="2px solid red";
+			}
+			else
+			{
+				var kqsearch=regsearch.test(search);
+				if(kqsearch==true || true)
+				{
+					document.getElementById("txtsearch").style.border="2px solid 	#7FFF00";
+					dem++;		
+				}
+			}
+			if(dem == 1)
+			{	
+				document.getElementById('searchForm').action = '../searchprocess.php';
+				return true;		
+			}
+			else
+			{
+				return false;
+			}
+		}
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../Css/cssIndex.css">
 </head>
 <body>
 	<div id="main">
@@ -96,13 +129,13 @@
 					
 				</div>
 			</div>
-			<div id="logo"></div>
+			<a href="index.php"><div id="logo"></div></a>
 			<div id="SearchLogin">
 				<div id="khongdelamgi"></div>
 				<div id="timKiem" style="margin: auto;  display: flex; align-items: center;">
-						<form style="padding-top: 40px margin-right: 5px; display: inline-block;"  action="../searchprocess.php" method="get">
-							<input type="search" id="txtsearch" name="Search" placeholder=" Tìm Kiếm... " >
-							<input type="submit" id="submitbtn" value="Tìm kiếm" onclick="return validate()"><i class="fas fa-search"></i>
+						<form style="padding-top: 40px margin-right: 5px; display: inline-block;" id="searchForm"  method="get" onsubmit="validate()">
+							<input type="text" id="txtsearch" name="Search" placeholder=" Tìm Kiếm... ">
+							<!-- <input type="submit" id="submitbtn" value="Tìm kiếm" onclick="return validate()"><i class="fas fa-search"></i> -->
 							<!-- <img  src="https://img.icons8.com/material/30/000000/search.png" > -->
 						</form>
 					</div>
@@ -150,7 +183,7 @@
 		</div>
 			<div id="mainMenu">
 				<div id="containerMenu" >
-					<?php $sql="select * from tbltheloai order by maTheLoai limit 5";
+					<?php $sql="select * from tbltheloai order by maTheLoai limit 4";
 						$result=mysqli_query($conn,$sql);
 						 ?>
 					<ul id="menu" >
@@ -164,9 +197,9 @@
 						<?php 
 							}
 						?>
-					<!-- 	<li>
+						<li>
 							<a href="#">Liên Hệ</a>
-						</li> -->
+						</li>
 					</ul>
 					
 				</div>
@@ -182,7 +215,7 @@
 				<table>
 				<div class="tong">
 					<h3>Thông Tin Cá Nhân</h3>
-					<?php 
+				<?php 
 						while ($a = mysqli_fetch_array($sql)) {
 					?>
 				<div>

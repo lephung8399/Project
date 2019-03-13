@@ -58,7 +58,7 @@ session_start();
 						
 					</div>
 				</div>
-				<div id="logo"></div>
+				<a href="index.php"><div id="logo"></div></a>
 				<div id="SearchLogin">
 					<div id="khongdelamgi"></div>
 					<div id="timKiem" style="margin: auto;  display: flex; align-items: center;">

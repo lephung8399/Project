@@ -23,22 +23,20 @@ session_start();
 				var kqsearch=regsearch.test(search);
 				if(kqsearch==true || true)
 				{
-					
 					document.getElementById("txtsearch").style.border="2px solid 	#7FFF00";
 					dem++;		
 				}
 			}
 			if(dem == 1)
-			{
-				return true;	
-				
+			{	
+				document.getElementById('searchForm').action = 'searchprocess.php';
+				return true;		
 			}
 			else
 			{
 				return false;
 			}
 		}
-
 		</script>
 		<link rel="stylesheet" type="text/css" href="../Css/cssIndex.css">
 	</head>
@@ -59,14 +57,52 @@ session_start();
 				<div id="SearchLogin">
 					<div id="khongdelamgi"></div>
 					<div id="timKiem" style="margin: auto;  display: flex; align-items: center;">
-						<form style="padding-top: 40px margin-right: 5px; display: inline-block;"  action="searchprocess.php" method="get">
-							<input type="search" id="txtsearch" name="Search" placeholder=" Tìm Kiếm... " >
-							<input type="submit" id="submitbtn" value="Tìm kiếm" onclick="return validate()">
+						<form style="padding-top: 40px margin-right: 5px; display: inline-block;" id="searchForm"  method="get" onsubmit="validate()">
+							<input type="text" id="txtsearch" name="Search" placeholder=" Tìm Kiếm... ">
+							<!-- <input type="submit" id="submitbtn" value="Tìm kiếm" onclick="return validate()"><i class="fas fa-search"></i> -->
+							<!-- <img  src="https://img.icons8.com/material/30/000000/search.png" > -->
 						</form>
 					</div>
-					<div id="taiKhoan" style="margin: auto; padding-top: 40px">
-						<a href="dangNhap.php"><img src="https://img.icons8.com/ios-glyphs/30/000000/user.png"></a>
+						<?php
+					if (isset($_SESSION["User"])) {
+					 	$user = $_SESSION["User"];
+					?>
+					<div id="taiKhoan" style="margin: auto; padding-top: 27px;">
+						<a href="dangNhap.php" style="  width: 200px;
+													    display: block;
+													    height: 30px;
+													    background: #f0f0f0;
+													    text-align: center;
+													    line-height: 30px;
+													    text-decoration: none;
+													    color: red;
+													    border-radius: 6px;
+													    float: left; "
+    					><span style="font-size: 18px;"><?php echo "Xin chào : ".$user; ?></span></a>
+    					<a href="trang ca nhan/dangXuat.php" style="width: 200px;
+													    display: block;
+													    height: 30px;
+													    background: #f0f0f0;
+													    text-align: center;
+													    line-height: 30px;
+													    text-decoration: none;
+													    color: red;
+													    border-radius: 6px;
+													    float: left;
+													    margin-top: 2px;
+													    font-size: 18px"
+
+													    >Đăng xuất</a>
 					</div>
+					<?php
+						}else{
+							?>
+							<div id="taiKhoan" style="margin: auto; padding-top: 40px">
+								<a href="dangNhap.php"><img src="https://img.icons8.com/ios-glyphs/30/000000/user.png"></a>
+							</div>
+							<?php
+						}
+					?>
 				</div>
 			</div>
 			<div id="mainMenu">
@@ -98,7 +134,7 @@ session_start();
 						if(isset($_GET['Search']))
 					{
 						$Search=$_GET['Search'];
-						$sql="Select * from tbltintuc where noiDung like '%$Search%' or tieuDe like '%$Search%' or moTa like '%$Search%' or tomTat like '%$Search%' ";
+						$sql="Select * from tbltintuc where noiDung like '%$Search%' or tieuDe  ";
 					}
 					$result=mysqli_query($con,$sql); 
 					$demm=mysqli_num_rows($result);
