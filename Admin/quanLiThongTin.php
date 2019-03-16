@@ -29,7 +29,60 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 		  cursor: pointer;
 		}
 	</style>
-	
+		<script type="text/javascript">
+		function thaydoi() {
+			var matkhauDB = <?php echo $pass ?>;
+			var passlai=document.getElementById('txtMatKhauLai').value;
+			var passcu=document.getElementById('txtMatKhauCu').value;
+			var pass=document.getElementById('txtMatKhau').value;
+
+			var errMatKhauCu=document.getElementById("errMatKhauCu");
+			var errMatKhau=document.getElementById("errMatKhau");
+
+			var regMatKhauCu=/^[a-zA-Z0-9]+$/;
+			var regMatKhau=/^[a-zA-Z0-9]+$/;
+			var dem=0;
+
+			if(pass.length==0)
+			{
+				document.getElementById("txtMatKhau").style.border="2px solid red";
+			}else
+			{
+				var kqMatKhau=regMatKhau.test(pass);
+				if(kqMatKhau)
+				{
+					errMatKhau.innerHTML="";
+					document.getElementById("txtMatKhau").style.border="2px solid 	#7FFF00";
+					dem++;		
+				}else
+				{
+					document.getElementById("txtMatKhau").style.border="2px solid red";	
+				}
+			}
+
+			if(passcu == matkhauDB)
+			{
+				document.getElementById("txtMatKhauCu").style.border="2px solid 	#7FFF00";
+				dem++;
+			}
+			else{
+				document.getElementById("txtMatKhau").style.border="2px solid red";	
+			}
+			if (pass==passlai) {
+				document.getElementById("txtMatKhauLai").style.border="2px solid 	#7FFF00";
+				dem++;	
+			}
+			else{
+				/*document.getElementById("txtMatKhauLai").alert("Mật khẩu không khớp");*/
+				document.getElementById("txtMatKhauLai").style.border="2px solid red"
+			}
+			
+			if (dem==3) {
+				document.getElementById("frm").type = "submit";	
+			}
+
+	}
+	</script>
 </head>
 <body>
 	<div id="qltt">
@@ -100,7 +153,59 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 					
 						<input type="submit" value="Cập Nhật" onclick="return confirm('Bạn có chắc muốn cập nhật?')"  >
 						</form>
-						<?php 
+						
+						<?php
+							if(isset($_GET["id"]))
+							{
+							
+								$id=$_GET["id"];
+							?>
+						<form method="POST"  action="suaPassProcess.php" >
+							<center>
+								<h5>Đổi mật khẩu</h5>
+									<table>
+										<tr>
+											<td>
+												Mật Khẩu Cũ:
+											</td> 
+											<td>
+												<input type="password" name="tntpasscu" id="txtMatKhauCu" /> <br />
+											</td>							
+												<span id="errMatKhauCu" ></span>							
+										</tr>
+										<tr>
+											<td>
+												Mật Khẩu Mới:
+											</td> 
+											<td>
+												<input type="password" name="tntPass" id="txtMatKhau"><br />
+											</td>
+												<span id="errMatKhau"></span>
+										</tr>
+										<tr>
+											<td>
+												Nhập Lại Mật Khẩu:
+											</td>
+											<td>
+												 <input type="password" name="tntPassLai" id="txtMatKhauLai"><br />
+											</td>
+												<span id="errMatKhau"></span>							
+										</tr>
+										<tr>
+											<td></td>
+											<td>
+												<center>
+													<button type="button" name="ma" id="frm" onclick="thaydoi()" value="<?php echo $id;?>">Thay Đổi</button>
+												</center>
+											</td>
+											<td></td>
+										</tr>
+									</table>
+								</center>
+							</form>
+							<?php
+				}
+				
 						include("../connectDb/close.php");
 						?>
 						

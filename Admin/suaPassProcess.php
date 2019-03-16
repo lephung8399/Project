@@ -5,8 +5,8 @@
 
 		$pass = $_POST['tntPass'];
 		$ma=$_POST["ma"];
-			$conn = new mysqli("localhost", "root", "", "project");
-			$sql  = "UPDATE tbldocgia SET Pass = '$pass' WHERE maDocGia='$ma' ";
+			include("../connectDb/open.php");
+			$sql  = "UPDATE tblAdmin SET password = '$pass' WHERE maTaiKhoan='$ma' ";
 			echo $sql;
 			$query = mysqli_query($conn,$sql);
 			 

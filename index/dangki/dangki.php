@@ -248,7 +248,7 @@ session_start();
 		<center>
 	        <table>
 	            <tr>
-	                <th colspan="3" style="font-size: 24px; color: 	white;">Thông Tin Ðang Nhập</th>
+	                <th colspan="3" style="font-size: 24px; color: 	white;">Thông Tin Ðăng Ký</th>
 	            </tr>
 	            <tr>
 	                <td >Tên Đăng Nhập:</td>
