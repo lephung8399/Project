@@ -46,7 +46,7 @@ if(!isset($_SESSION['maQuyen'])) header("location: index.php");
 		
 		  
 	</style>
-		}
+		
 </head>
 </head>
 <body>
