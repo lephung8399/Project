@@ -114,7 +114,7 @@ if(!isset($_SESSION['maQuyen']) || $_SESSION['maQuyen'] < 2 ) header("location: 
 						<input type="text" style="width: 150px" name="txtUser" value="<?php echo($QLadmin["tenTaiKhoan"]);?>" >
 					</td>
 					<td>
-						<input type="password" style="width: 130px" name="txtPass" value="<?php echo($QLadmin["password"]);?>" >
+						<input type="password" style="width: 130px" name="txtPass" value="**********" >
 					</td>
 					<td>
 						<input type="text" style="width: 130px" name="txtEmail" value="<?php echo($QLadmin["email"]);?>" style="width: 100%">
