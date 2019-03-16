@@ -252,7 +252,7 @@ session_start();
 	            </tr>
 	            <tr>
 	                <td >Tên Đăng Nhập:</td>
-	                <td ><input type="text" id="txtUser" size="30" name="txtdangnhap" /></td>
+	                <td ><input type="text" id="txtUser" size="30" name="txtdangnhap"   onchange="validate()"" /></td>
 	            </tr>
 				<tr >
 				    <td ></td>
@@ -260,7 +260,7 @@ session_start();
 				</tr>
 	            <tr>
 	                <td>Mật Khẩu:</td>
-	                <td><input type="password" id="txtMatKhau" size="30" name="txtmatkhau" /></td>
+	                <td><input type="password" id="txtMatKhau" size="30" name="txtmatkhau"  onchange="validate()" /></td>
 	                
 	            </tr>
 	            <tr>
@@ -269,7 +269,7 @@ session_start();
 	            </tr>
 	            <tr>
 	                <td>Nhập lại mật khẩu:</td>
-	                <td><input type="password" id="txtNhapLaiMatKhau" size="30" /></td>
+	                <td><input type="password" id="txtNhapLaiMatKhau" size="30" onchange="validate()" /></td>
 	            </tr>
 	            <tr>
 	                <td ></td>
@@ -280,7 +280,7 @@ session_start();
 	            </tr>
 	            <tr>
 	                <td>Họ Khách Hàng:</td>
-	                <td><input type="text" id="txtHo" size="30" name="txtHo"/></td>
+	                <td><input type="text" id="txtHo" size="30" name="txtHo" onchange="validate()" /></td>
 	            </tr>
 	            <tr>
 	                <td ></td>
@@ -288,7 +288,7 @@ session_start();
 	            </tr>
 	            <tr>
 	                <td>Tên Khách Hàng:</td>
-	                <td><input type="text" id="txtTen"size="30"  name="txtTen"/></td>
+	                <td><input type="text" id="txtTen"size="30"  name="txtTen" onchange="validate()" /></td>
 	            </tr>
 	            <tr>
 	                <td ></td>
@@ -297,7 +297,7 @@ session_start();
 	            <tr>
 	                <td>Ngày Sinh:</td>
 	                <td>
-	                    <select id="ddlNgay" name="txtNgay">
+	                    <select id="ddlNgay" name="txtNgay" onchange="validate()">
 	                        <option value="-1">--ngày--</option>
 	                        <option value="">1</option>
 	                        <option value="">2</option>
@@ -331,7 +331,7 @@ session_start();
 	                        <option value="">30</option>
 	                        <option value="">31</option>
 	                    </select>/
-	                    <select id="ddlThang" name="txtThang">
+	                    <select id="ddlThang" name="txtThang" onchange="validate()">
 	                        <option value="-1">--Tháng--</option>
 	                        <option value="">1</option>
 	                        <option value="">2</option>
@@ -346,7 +346,7 @@ session_start();
 	                        <option value="">11</option>
 	                        <option value="">12</option>
 	                    </select>/
-	                    <select id="ddlNam" name="txtNam">
+	                    <select id="ddlNam" name="txtNam" onchange="validate()">
 	                        <option value="-1">--Năm--</option>
 	                        <option value="">1988</option>
 	                        <option value="">1989</option>
@@ -388,7 +388,7 @@ session_start();
 	            </tr>
 	            <tr>
 	                <td>Giới tính:</td>
-	                <td id="GioiTinh"><input type="radio" name="rdbGt" value="1" />Nam<input type="radio" name="rdbGt" value="0" />Nu</td>
+	                <td id="GioiTinh"><input type="radio" name="rdbGt" value="1" onchange="validate()" />Nam<input type="radio" name="rdbGt" value="0" onchange="validate()" />Nu</td>
 	            </tr>
 	            <tr>
 	                <td ></td>
@@ -396,7 +396,7 @@ session_start();
 	             </tr>
 	            <tr>
 	                <td>Email:</td>
-	                <td><input type="text" id="txtEmail" size="30" name="txtEmail"/></td>
+	                <td><input type="text" id="txtEmail" size="30" name="txtEmail"         onchange="validate()"/></td>
 	            </tr>
 	            <tr>
 	                <td ></td>
@@ -404,15 +404,15 @@ session_start();
 	            </tr>
 	            <tr>
 	                <td>Ðịa Chỉ:</td>
-	                <td><textarea id="textDiaChi" cols="31"  name="txtDiaChi"></textarea></td>
+	                <td><textarea id="textDiaChi" cols="31"  name="txtDiaChi" onchange="validate()"></textarea></td>
 	            </tr>
 	            <tr>
 	                        		<td ></td>
-	                <td class="errcolor"><span id="errDiaChi" class="err"></span></td>
+	                <td class="errcolor"><span id="errDiaChi" class="err" onchange="validate()"></span></td>
 	            </tr>
 	            <tr>
 	                <td>Điện thoại:</td>
-	                <td><input type="text" id="txtDienThoai" size="30"  name="txtDienThoai"/></td>
+	                <td><input type="text" id="txtDienThoai" size="30"  name="txtDienThoai" onchange="validate()" /></td>
 	            </tr>
 	            <tr>
             		<td ></td>
